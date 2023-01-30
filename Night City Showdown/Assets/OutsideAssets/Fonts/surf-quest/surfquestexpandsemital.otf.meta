@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: db802f9b0b73d8f48bede9e550dc03cf
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SurfQuest Expanded Semi-Italic
+  fontNames:
+  - SurfQuest Expanded Semi-Italic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b670ac5d3b40018439b27194e14e5384, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

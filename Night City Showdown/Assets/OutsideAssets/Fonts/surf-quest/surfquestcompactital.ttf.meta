@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6aed64af57c5f7e4b801aa6e806387c0
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SurfQuest Compact Italic
+  fontNames:
+  - SurfQuest Compact Italic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d65f7b3553ec1484891b7271b0ae5348, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

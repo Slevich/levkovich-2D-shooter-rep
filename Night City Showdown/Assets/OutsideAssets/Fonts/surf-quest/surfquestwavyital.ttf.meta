@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: bbb1aa7ae594066488a52e842848fd8b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SurfQuest Wavy Italic
+  fontNames:
+  - SurfQuest Wavy Italic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 19d67765b70a47a4682d148eee98493e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

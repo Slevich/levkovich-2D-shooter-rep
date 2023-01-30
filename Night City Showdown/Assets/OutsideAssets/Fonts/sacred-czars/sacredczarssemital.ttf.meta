@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 67ac21aa0b6c6aa448472b342faf66e4
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Sacred Czars Semi-Italic
+  fontNames:
+  - Sacred Czars Semi-Italic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b33895aaf3512e04a9a4ed5348523395, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

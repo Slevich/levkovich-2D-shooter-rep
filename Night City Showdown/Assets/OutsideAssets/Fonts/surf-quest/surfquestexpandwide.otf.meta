@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 54a075c6f049596478517d542a42b407
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SurfQuest Wide
+  fontNames:
+  - SurfQuest Wide
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 814443a29cbccb547a43224c5de331cc, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

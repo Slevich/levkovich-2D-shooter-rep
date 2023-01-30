@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 76d65ea1258bc6648a5ac135e5c3b8fc
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SurfQuest Condensed Semi-Ital
+  fontNames:
+  - SurfQuest Condensed Semi-Ital
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 31c2bf3382062cc4a863c19c67344f09, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

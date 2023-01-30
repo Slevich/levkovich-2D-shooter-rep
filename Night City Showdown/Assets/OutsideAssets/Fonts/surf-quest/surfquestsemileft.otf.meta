@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 96bbf529da7b89d4bb6eb2d1198ba8c7
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SurfQuest Semi-Leftalic
+  fontNames:
+  - SurfQuest Semi-Leftalic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c032669c27a68104a89fae726edc49b5, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

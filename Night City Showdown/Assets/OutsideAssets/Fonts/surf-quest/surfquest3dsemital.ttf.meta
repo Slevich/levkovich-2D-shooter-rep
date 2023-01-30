@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 1e4d27ef5db28654c9e787dc9ce967a5
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SurfQuest 3D Semi-Italic
+  fontNames:
+  - SurfQuest 3D Semi-Italic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a8a7edfc90c053445bf2f33993113e52, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

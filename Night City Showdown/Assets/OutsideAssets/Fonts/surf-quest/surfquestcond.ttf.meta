@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: b656faab5f5b4604face7f28a8242797
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SurfQuest Condensed
+  fontNames:
+  - SurfQuest Condensed
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b614077b83aa3b24cbb88c08052c5022, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

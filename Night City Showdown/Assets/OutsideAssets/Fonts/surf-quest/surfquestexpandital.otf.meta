@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 4860ee8956303c74bbc20bdf57f6b301
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SurfQuest Expanded Italic
+  fontNames:
+  - SurfQuest Expanded Italic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7757635eb53ce844084918f302326233, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

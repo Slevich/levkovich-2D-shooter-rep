@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: da2637789e7d91f4d9bb5c899987c943
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Sacred Czars Spaced Italic
+  fontNames:
+  - Sacred Czars Spaced Italic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 44f18ab49852e5a4cb117a69cbb22ed2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

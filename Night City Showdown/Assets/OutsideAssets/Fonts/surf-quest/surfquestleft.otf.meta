@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 243561fcd77f9cc4fb478cf11b38bb3d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SurfQuest Leftalic
+  fontNames:
+  - SurfQuest Leftalic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d1a9650dd07dfea459ee286e506e085e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

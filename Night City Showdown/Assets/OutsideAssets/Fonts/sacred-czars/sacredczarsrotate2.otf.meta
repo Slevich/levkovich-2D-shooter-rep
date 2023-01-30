@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 912049bd6536adb419b91d646d0e5765
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Sacred Czars Rotated 2
+  fontNames:
+  - Sacred Czars Rotated 2
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 004919ee935de7b4995e27240313b882, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

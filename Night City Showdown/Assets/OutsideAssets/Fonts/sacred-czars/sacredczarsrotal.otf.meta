@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 37c46b2307bc9ce44b5f8413ee388f27
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Sacred Czars Rotalic
+  fontNames:
+  - Sacred Czars Rotalic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 746e5893c58503f45909f0b75777516f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - Enemy
+  - Destroyable
+  - Border
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - Player
+  - Enemy
+  - Item
+  - PlayerNonCollided
+  - Border
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 98486263
+    locked: 0
+  - name: Foreground
+    uniqueID: 2345020591
+    locked: 0
+  - name: Ground
+    uniqueID: 4262175863
+    locked: 0
+  - name: Props
+    uniqueID: 3906155805
+    locked: 0
+  - name: Character
+    uniqueID: 1617939287
+    locked: 0
+  - name: Water
+    uniqueID: 3815048073
+    locked: 0
+  - name: UI
+    uniqueID: 3366666999
+    locked: 0

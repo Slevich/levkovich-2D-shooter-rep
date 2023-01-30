@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 79aa21e05a1f1bd45a417f5947b42348
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Sacred Czars
+  fontNames:
+  - Sacred Czars
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 616eae4ddff8b3c43b099808357b1677, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

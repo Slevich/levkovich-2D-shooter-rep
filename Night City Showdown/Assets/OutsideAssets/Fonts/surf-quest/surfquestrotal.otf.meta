@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: cc0408acf3b6c3d4d8ac6d0e0b48e2d8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SurfQuest Rotalic
+  fontNames:
+  - SurfQuest Rotalic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d63582a049f391a4ca10ea2b7ed753ba, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

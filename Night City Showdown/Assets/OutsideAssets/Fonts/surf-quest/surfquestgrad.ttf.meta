@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: ff3564e0be3eceb458a8593af4208c0d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SurfQuest Gradient
+  fontNames:
+  - SurfQuest Gradient
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1fe8a2d756fd7f143a9d20a43c71c23a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6efb1ccf10e8af849abe0aff332f13df
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SurfQuest Rotated
+  fontNames:
+  - SurfQuest Rotated
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1d7bc92de1012ee42b625f9fe79a139d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: fe4681ca82d9fcc4c95ee133868ee5ea
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Sacred Czars Semi-Leftalic
+  fontNames:
+  - Sacred Czars Semi-Leftalic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 036fbf76096020746a2870bb79f3a7b9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
