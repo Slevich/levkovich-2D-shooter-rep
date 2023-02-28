@@ -963,7 +963,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: OnClickRetry
+        m_MethodName: ReloadCurrentSceneOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -974,11 +974,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: PlayClickSound
-        m_Mode: 1
+        m_MethodName: PlaySoundOnClick
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 705581b08d6dd9041bdbc25eed94d353,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1594,7 +1595,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: ChangePanelOnClick
+        m_MethodName: ChangePanel
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 6942041574513852503}
@@ -1605,11 +1606,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: PlayClickSound
-        m_Mode: 1
+        m_MethodName: PlaySoundOnClick
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 705581b08d6dd9041bdbc25eed94d353,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2195,8 +2197,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: OnClickMainMenu
-        m_Mode: 1
+        m_MethodName: LoadSceneOnClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2206,11 +2208,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: PlayClickSound
-        m_Mode: 1
+        m_MethodName: PlaySoundOnClick
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 705581b08d6dd9041bdbc25eed94d353,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2682,7 +2685,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: OnClickNext
+        m_MethodName: LoadNextSceneOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2693,11 +2696,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: PlayClickSound
-        m_Mode: 1
+        m_MethodName: PlaySoundOnClick
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 705581b08d6dd9041bdbc25eed94d353,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2975,11 +2979,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: PlayClickSound
-        m_Mode: 1
+        m_MethodName: PlaySoundOnClick
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 705581b08d6dd9041bdbc25eed94d353,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3115,11 +3120,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: PlayClickSound
-        m_Mode: 1
+        m_MethodName: PlaySoundOnClick
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 705581b08d6dd9041bdbc25eed94d353,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3399,7 +3405,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: OnClickRetry
+        m_MethodName: ReloadCurrentSceneOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3410,11 +3416,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: PlayClickSound
-        m_Mode: 1
+        m_MethodName: PlaySoundOnClick
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 705581b08d6dd9041bdbc25eed94d353,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3541,7 +3548,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: OnClickRetry
+        m_MethodName: ReloadCurrentSceneOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3552,11 +3559,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: PlayClickSound
-        m_Mode: 1
+        m_MethodName: PlaySoundOnClick
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 705581b08d6dd9041bdbc25eed94d353,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6442,8 +6450,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: OnClickMainMenu
-        m_Mode: 1
+        m_MethodName: LoadSceneOnClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6453,11 +6461,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: PlayClickSound
-        m_Mode: 1
+        m_MethodName: PlaySoundOnClick
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 705581b08d6dd9041bdbc25eed94d353,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7812,7 +7821,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7925869082146696330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.584141, y: -0.5048001, z: -10}
+  m_LocalPosition: {x: -2.853, y: 1.121, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7513718551534556231}
@@ -8171,22 +8180,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fcdfd1d78bf9f14fa2488a1fdadfb3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainChar: {fileID: 0}
-  levelPlayableHUD: {fileID: 5560590957175541673}
-  pauseScreen: {fileID: 3023326659706739352}
-  buttonsPanel: {fileID: 545378418235314643}
+  menuButtonsPanel: {fileID: 545378418235314643}
   musicOffButton: {fileID: 6942041575325809649}
   musicOnButton: {fileID: 6942041574274209548}
   soundsOffButton: {fileID: 6942041574703575973}
   soundsOnButton: {fileID: 6942041575506378687}
   musicSlider: {fileID: 6942041574964594474}
   soundsSlider: {fileID: 6942041575254982787}
+  mainChar: {fileID: 0}
+  levelPlayableHUD: {fileID: 5560590957175541673}
+  pauseScreen: {fileID: 3023326659706739352}
+  buttonsPanel: {fileID: 545378418235314643}
   UISoundsSource: {fileID: 187336872839314463}
   soundsSources:
   - {fileID: 187336872839314463}
   levelMusicSources: []
-  soundsMaxVolume: []
-  musicMaxVolume: []
 --- !u!114 &8756273938884667156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8857,8 +8865,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: OnClickMainMenu
-        m_Mode: 1
+        m_MethodName: LoadSceneOnClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8868,11 +8876,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 7917095128647504584}
-        m_MethodName: PlayClickSound
-        m_Mode: 1
+        m_MethodName: PlaySoundOnClick
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 705581b08d6dd9041bdbc25eed94d353,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

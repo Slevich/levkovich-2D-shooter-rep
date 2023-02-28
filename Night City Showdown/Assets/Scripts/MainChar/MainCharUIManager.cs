@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MainCharUICounts : MonoBehaviour
+public class MainCharUIManager : MonoBehaviour
 {
     #region Поля
     [Header("Text components of objects, which represents weapon bullets counts.")]
@@ -38,46 +38,14 @@ public class MainCharUICounts : MonoBehaviour
     [Header("Audio source with music, which played on the level.")]
     [SerializeField] private AudioSource levelMusicSource;
 
-    //Переменная, содержащая в себе номер текущей главы.
-    public int chapterNumber;
-    //Переменная, содержащая в себе количество убитых врагов.
-    public int enemyKilled;
-    //Переменная, содержащая в себе количество заработанных очков.
-    public int pointsEarned;
-    //Переменная, содержащая в себе время прохождения текущей главы.
-    public float chapterTime;
-
     //Переменные, содержащие в себе референс на другие компоненты персонажа.
-    private MainCharWeapons playerWeapons;
+    private MainCharRangeAttack playerWeapons;
     private MainCharSounds playerSounds;
+    private MainCharStat playerStat;
     private Health playerHealth;
     #endregion
 
-    #region Методы
-    /* В методе OnValidate проверяем, не изменены ли
-     * указанные параметры. Если они не равны необходимым значениям,
-     * им присваивается ноль, в случае в номером главы - номер сцены.
-     */
-    private void OnValidate()
-    {
-        if (chapterNumber != SceneManager.GetActiveScene().buildIndex)
-        {
-            chapterNumber = SceneManager.GetActiveScene().buildIndex;
-        }
-        else if (enemyKilled != 0)
-        {
-            enemyKilled = 0;
-        }
-        else if (pointsEarned != 0)
-        {
-            pointsEarned = 0;
-        }
-        else if (chapterTime != 0)
-        {
-            chapterTime = 0;
-        }
-    }
-    
+    #region Методы  
     /* На старте получаем необходимые компоненты.
      * Запускаем метод, чтобы подтянуть значения переменных с патронами оружий
      * в поля с текстом в UI.
@@ -85,14 +53,11 @@ public class MainCharUICounts : MonoBehaviour
      */
     private void Start()
     {
-        playerWeapons = GetComponent<MainCharWeapons>();
+        playerWeapons = GetComponent<MainCharRangeAttack>();
         playerSounds = GetComponent<MainCharSounds>();
+        playerStat = GetComponent<MainCharStat>();
         playerHealth = GetComponent<Health>();
         UpdateAmmoCounts();
-        chapterNumber = SceneManager.GetActiveScene().buildIndex;
-        enemyKilled = 0;
-        pointsEarned = 0;
-        chapterTime = 0;
     }
 
     /* В Update запускаем таймер прохождения главы.
@@ -100,7 +65,6 @@ public class MainCharUICounts : MonoBehaviour
      */
     private void Update()
     {
-        chapterTime += Time.deltaTime;
         UpdateScoreCountText();
         UpdateAmmoCounts();
         UpdateWeaponDisableFilters();
@@ -128,19 +92,19 @@ public class MainCharUICounts : MonoBehaviour
      */
     private void UpdateWeaponDisableFilters()
     {
-        if (playerWeapons.activeWeaponHandsType == "Pistol")
+        if (playerWeapons.ActiveWeaponType == "Pistol")
         {
             pistolDisableFilter.SetActive(false);
             fistsDisableFilter.SetActive(true);
             rifleDisableFilter.SetActive(true);
         }
-        else if (playerWeapons.activeWeaponHandsType == "Rifle")
+        else if (playerWeapons.ActiveWeaponType == "Rifle")
         {
             pistolDisableFilter.SetActive(true);
             rifleDisableFilter.SetActive(false);
             fistsDisableFilter.SetActive(true);
         }
-        else if (playerWeapons.activeWeaponHandsType == "Fists")
+        else if (playerWeapons.ActiveWeaponType == "Fists")
         {
             pistolDisableFilter.SetActive(true);
             rifleDisableFilter.SetActive(true);
@@ -153,10 +117,10 @@ public class MainCharUICounts : MonoBehaviour
      */ 
     private void ShowWeaponSlots()
     {
-        if (playerWeapons.playerWeaponsList.Contains("Pistol")) pistolPanel.SetActive(true);
+        if (playerWeapons.PlayerWeaponsList.Contains("Pistol")) pistolPanel.SetActive(true);
         else pistolPanel.SetActive(false);
 
-        if (playerWeapons.playerWeaponsList.Contains("Rifle")) riflePanel.SetActive(true);
+        if (playerWeapons.PlayerWeaponsList.Contains("Rifle")) riflePanel.SetActive(true);
         else riflePanel.SetActive(false);
     }
 
@@ -174,15 +138,15 @@ public class MainCharUICounts : MonoBehaviour
      */
     private void UpdateReloadUIAnimation()
     {
-        if (playerWeapons.isReloading && playerWeapons.activeWeaponHandsType == "Pistol")
+        if (playerWeapons.IsReloading && playerWeapons.ActiveWeaponType == "Pistol")
         {
             pistolReloadPanel.gameObject.SetActive(true);
-            pistolReloadPanel.fillAmount = playerWeapons.pistolReloadTimer / playerWeapons.pistolCurrentReloadTimer;
+            pistolReloadPanel.fillAmount = playerWeapons.pistolReloadTimer / playerWeapons.PistolCurrentReloadTimer;
         }
-        else if (playerWeapons.isReloading && playerWeapons.activeWeaponHandsType == "Rifle")
+        else if (playerWeapons.IsReloading && playerWeapons.ActiveWeaponType == "Rifle")
         {
             rifleReloadPanel.gameObject.SetActive(true);
-            rifleReloadPanel.fillAmount = playerWeapons.rifleReloadTimer / playerWeapons.rifleCurrentReloadTimer;
+            rifleReloadPanel.fillAmount = playerWeapons.rifleReloadTimer / playerWeapons.RifleCurrentReloadTimer;
         }
         else
         {
@@ -237,17 +201,7 @@ public class MainCharUICounts : MonoBehaviour
     // Метод обновляет количество очков в UI.
     private void UpdateScoreCountText()
     {
-        scoreCountText.text = pointsEarned.ToString();
-    }
-
-    /// <summary>
-    /// Обновляет счет при смерти врага.
-    /// </summary>
-    /// <param name="enemyPointCost">Стоимость убийства врага в очках.</param>
-    public void UpdateScoreOnEnemyDeath(int enemyPointCost)
-    {
-        pointsEarned += enemyPointCost;
-        enemyKilled++;
+        scoreCountText.text = playerStat.PointsEarned.ToString();
     }
     #endregion
 }

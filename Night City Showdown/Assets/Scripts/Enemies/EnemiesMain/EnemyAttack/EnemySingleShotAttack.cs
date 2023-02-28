@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySingleShotAttack : EnemyAttack
 {
+    #region Поля
     [Header("The amount of time that passes between attacks.")]
     [SerializeField] private float attackInterval;
     [Header("The speed of the bullet firing.")]
@@ -17,9 +18,10 @@ public class EnemySingleShotAttack : EnemyAttack
     [Header("Transform array with all muzzles.")]
     [SerializeField] private Transform[] muzzles;
 
+    //Компоненты врага.
     private GroundedRangeSingleShotEnemyAnimations enemyAnim;
     private SpriteRenderer enemySR;
-    private Transform playerTransform;
+    private EnemyMovement enemyMovement;
     //Массив трансформов активных точек вылета пуль.
     private Transform[] activeMuzzles = new Transform[2];
     //Точка, обозначающая направление полета обеих пуль.
@@ -29,18 +31,26 @@ public class EnemySingleShotAttack : EnemyAttack
     private float reloadAttackInterval;
     //Направление атаки врага.
     private float attackDirection;
+    #endregion
 
+    #region Свойства
     public float AttackDirection { get { return attackDirection; } }
+    #endregion
 
+    #region Методы
+    //В Awake получает компоненты. Присваиваем таймеру для обнуления. Направление атаки нулевое.
     private void Awake()
     {
-        playerTransform = GetComponent<GroundedEnemyMovement>().PlayerTransform;
+        enemyMovement = GetComponent<EnemyMovement>();
         enemySR = GetComponent<SpriteRenderer>();
         enemyAnim = GetComponent<GroundedRangeSingleShotEnemyAnimations>();
         reloadAttackInterval = attackInterval;
         attackDirection = 0;
     }
 
+    /*В Update, если игрок в радиусе атаки, обновляем активную точку вылета пули и атакуем.
+     *Если игрок не в радиусе атаки, обнуляем интервал атаки.
+     */
     private void Update()
     {
         if (PlayerInRange)
@@ -54,40 +64,38 @@ public class EnemySingleShotAttack : EnemyAttack
         }
     }
 
-    /// <summary>
-    /// Метод передает в направление полета пули -
-    /// весторы right, чтобы из точек они летели прямо.
-    /// </summary>
+    /* Метод передает в направление полета пули -
+     * весторы right, чтобы из точек они летели прямо.
+     */
     private void CalculateBulletDirections()
     {
         bullet1Direction = activeMuzzles[0].right;
         bullet2Direction = activeMuzzles[1].right;
     }
 
-    /// <summary>
-    /// Метод передает в качестве активных точек вылета пули
-    /// местоположения объектов, в зависимости от местоположения игрока.
-    /// Если он намного выше врага, берутся верхние точки.
-    /// Если на одной уровне - средние точки.
-    /// Если сильно ниже - нижние точки.
-    /// </summary>
+    /* Метод передает в качестве активных точек вылета пули
+     * местоположения объектов, в зависимости от местоположения игрока.
+     * Если он намного выше врага, берутся верхние точки.
+     * Если на одной уровне - средние точки.
+     * Если сильно ниже - нижние точки.
+     */
     private void UpdateActiveMuzzles()
     {
         if (enemySR.flipX)
         {
-            if ((playerTransform.position.y < (transform.position.y + distanceDifference)) && (playerTransform.position.y > (transform.position.y - distanceDifference)))
+            if ((enemyMovement.PlayerTransform.position.y < (transform.position.y + distanceDifference)) && (enemyMovement.PlayerTransform.position.y > (transform.position.y - distanceDifference)))
             {
                 activeMuzzles[0] = muzzles[8];
                 activeMuzzles[1] = muzzles[9];
                 attackDirection = 0;
             }
-            else if (playerTransform.position.y < (transform.position.y - distanceDifference))
+            else if (enemyMovement.PlayerTransform.position.y < (transform.position.y - distanceDifference))
             {
                 activeMuzzles[0] = muzzles[6];
                 activeMuzzles[1] = muzzles[7];
                 attackDirection = -1;
             }
-            else if (playerTransform.position.y > (transform.position.y + distanceDifference))
+            else if (enemyMovement.PlayerTransform.position.y > (transform.position.y + distanceDifference))
             {
                 activeMuzzles[0] = muzzles[10];
                 activeMuzzles[1] = muzzles[11];
@@ -96,19 +104,19 @@ public class EnemySingleShotAttack : EnemyAttack
         }
         else
         {
-            if ((playerTransform.position.y < (transform.position.y + distanceDifference)) && (playerTransform.position.y > (transform.position.y - distanceDifference)))
+            if ((enemyMovement.PlayerTransform.position.y < (transform.position.y + distanceDifference)) && (enemyMovement.PlayerTransform.position.y > (transform.position.y - distanceDifference)))
             {
                 activeMuzzles[0] = muzzles[2];
                 activeMuzzles[1] = muzzles[3];
                 attackDirection = 0;
             }
-            else if (playerTransform.position.y < (transform.position.y - distanceDifference))
+            else if (enemyMovement.PlayerTransform.position.y < (transform.position.y - distanceDifference))
             {
                 activeMuzzles[0] = muzzles[0];
                 activeMuzzles[1] = muzzles[1];
                 attackDirection = -1;
             }
-            else if (playerTransform.position.y > (transform.position.y + distanceDifference))
+            else if (enemyMovement.PlayerTransform.position.y > (transform.position.y + distanceDifference))
             {
                 activeMuzzles[0] = muzzles[4];
                 activeMuzzles[1] = muzzles[5];
@@ -117,11 +125,10 @@ public class EnemySingleShotAttack : EnemyAttack
         }
     }
 
-    /// <summary>
-    /// Метод переключает состояние врага в покой.
-    /// Запускает таймер, по результатам которого стейт
-    /// переключается в атаку.
-    /// </summary>
+    /* Метод переключает состояние врага в покой.
+     * Запускает таймер, по результатам которого стейт
+     * переключается в атаку.
+     */
     private void SingleShotAttack()
     {
         enemyAnim.ChangeEnemyState(EnemyAnimation.EnemyStates.Movement);
@@ -133,11 +140,10 @@ public class EnemySingleShotAttack : EnemyAttack
         }
     }
 
-    /// <summary>
-    /// Метод спавнит две пули,
-    /// и они летят в направлении игрока.
-    /// Метод вызывается в анимации стельбы через ивент.
-    /// </summary>
+    /* Метод спавнит две пули,
+     * и они летят в направлении игрока.
+     * Метод вызывается в анимации стельбы через ивент.
+     */
     private void ShootBullets()
     {
         GameObject shootVFX1 = Instantiate(shootVFXPrefab, activeMuzzles[0].position, activeMuzzles[0].rotation);
@@ -151,13 +157,13 @@ public class EnemySingleShotAttack : EnemyAttack
         currentBullet2RB.velocity = bullet2Direction * fireSpeed;
     }
 
-    /// <summary>
-    /// Метод обнуляет интервал атаки.
-    /// Метод вызывается в конце анимации стрельбы
-    /// через ивент.
-    /// </summary>
+    /* Метод обнуляет интервал атаки.
+     * Метод вызывается в конце анимации стрельбы
+     * через ивент.
+     */
     private void ReloadAttackInterval()
     {
         attackInterval = reloadAttackInterval;
     }
+    #endregion
 }

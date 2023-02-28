@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovingDrone : MonoBehaviour
 {
-    #region Переменные
+    #region Поля
     [Header("Movement speed")]
     [SerializeField] private float speed;
     [Header("Waiting timer before starting movement")]
@@ -33,11 +33,10 @@ public class MovingDrone : MonoBehaviour
     #endregion
 
     #region Методы
-    /// <summary>
-    /// Метод Start. Получаем необходимые компоненты.
-    /// Присваиваем таймеру обнуления - таймер.
-    /// Активной точке присваиваем местоположение объекта.
-    /// </summary>
+    /* Метод Start. Получаем необходимые компоненты.
+     * Присваиваем таймеру обнуления - таймер.
+     * Активной точке присваиваем местоположение объекта.
+     */
     private void Start()
     {
         charSR = GetComponent<SpriteRenderer>();
@@ -47,12 +46,11 @@ public class MovingDrone : MonoBehaviour
         activePoint = transform.position;
     }
 
-    /// <summary>
-    /// Метод Update. Вызываем метод для проверки дошел ли объект до точки.
-    /// Вызываем метод поворота спрайта в зависимости от направления движения.
-    /// Если объект дошел до точки, останавливаем его, включаем таймер,
-    /// потом меняем направление движения.
-    /// </summary>
+    /* Метод Update. Вызываем метод для проверки дошел ли объект до точки.
+     * Вызываем метод поворота спрайта в зависимости от направления движения.
+     * Если объект дошел до точки, останавливаем его, включаем таймер,
+     * потом меняем направление движения.
+     */
     private void Update()
     {
         CharReachPoint();
@@ -84,18 +82,14 @@ public class MovingDrone : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Проверка расстояния между transform объекта и дистанцией остановки.
-    /// </summary>
+    //Проверка расстояния между transform объекта и дистанцией остановки.
     private void CharReachPoint()
     {
         if (Vector2.Distance(transform.position, activePoint) <= stoppingDistance) charReachPosition = true;
         else charReachPosition = false;
     }
 
-    /// <summary>
-    /// Поворот спрайта в зависимости от направления движения объекта.
-    /// </summary>
+    //Поворот спрайта в зависимости от направления движения объекта.
     private void UpdateSpriteFlip()
     {
         if (charRB.velocity.x > 0) charSR.flipX = false;

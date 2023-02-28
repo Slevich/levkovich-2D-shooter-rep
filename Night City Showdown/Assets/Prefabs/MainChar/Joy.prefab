@@ -1566,8 +1566,11 @@ GameObject:
   - component: {fileID: 6742959009901870998}
   - component: {fileID: 6742959009901870999}
   - component: {fileID: 6742959009901870996}
-  - component: {fileID: 6742959009901871003}
+  - component: {fileID: 4679980728481537159}
+  - component: {fileID: 5688748164199861716}
   - component: {fileID: 6742959009901871002}
+  - component: {fileID: 6742959009901871003}
+  - component: {fileID: 3969995041888689446}
   - component: {fileID: 6742959009901871001}
   m_Layer: 9
   m_Name: Joy
@@ -1713,16 +1716,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc790c7e2cb5125479a62c3181571ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalDirection: 0
-  inputIsActive: 0
-  jumpButtonPressed: 0
-  number1Pressed: 0
-  number2Pressed: 0
-  number3Pressed: 0
-  fireButtonPressed: 0
-  punchButtonPressed: 0
-  reloadButtonPressed: 0
-  escapeButtonPressed: 0
 --- !u!114 &6742959009901870998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1738,19 +1731,6 @@ MonoBehaviour:
   movementSpeed: 65
   jumpForce: 2.5
   doubleJumpModifier: 0.9
-  groundCheckCapsule: {fileID: 0}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 256
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  isInAir: 0
-  isJumping: 0
-  isDoubleJumping: 0
-  canMove: 0
-  jumpPosition: 0
-  doubleJumpPosition: 0
 --- !u!114 &6742959009901870999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1763,7 +1743,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ed0559b32d6ccd4788c602c0c0940e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canAnimate: 0
 --- !u!114 &6742959009901870996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1796,26 +1775,59 @@ MonoBehaviour:
   pistolFireSpeed: 6
   rifleFireSpeed: 10
   rifleFireRate: 0.1
-  hitDamage: 15
-  punchDamage: 20
-  pushForce: 15
   pistolBulletsInClip: 12
   allPistolBullets: 100
   rifleBulletsInClip: 35
   allRifleBullets: 100
   pistolReloadTimer: 1
   rifleReloadTimer: 2
-  activeWeaponHandsType: 
-  playerWeaponsList: []
-  enemyCollider: {fileID: 0}
-  pistolCurrentReloadTimer: 0
-  rifleCurrentReloadTimer: 0
-  isWeaponEquipped: 0
-  isReloading: 0
-  isHitting: 0
-  isPunching: 0
-  enemyInRange: 0
-  canAim: 0
+--- !u!114 &4679980728481537159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6742959009901870989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09585740e8832e74593db29d48e06f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDamage: 20
+  punchDamage: 25
+--- !u!114 &5688748164199861716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6742959009901870989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a024e419b12e844a34188a466128f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 256
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  groundCheckCapsule: {fileID: 7731721108601748313}
+--- !u!114 &6742959009901871002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6742959009901870989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 582517e572af3a844933f08006951034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 100
+  maxHealth: 100
 --- !u!114 &6742959009901871003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1848,11 +1860,7 @@ MonoBehaviour:
   levelHUD: {fileID: 0}
   deathScreen: {fileID: 0}
   levelMusicSource: {fileID: 0}
-  chapterNumber: 0
-  enemyKilled: 0
-  pointsEarned: 0
-  chapterTime: 0
---- !u!114 &6742959009901871002
+--- !u!114 &3969995041888689446
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1861,12 +1869,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6742959009901870989}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 582517e572af3a844933f08006951034, type: 3}
+  m_Script: {fileID: 11500000, guid: 5caa5398d46c6e143be1cce841b650e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 100
-  maxHealth: 100
-  isAlive: 0
+  chapterNumber: 5
+  enemyKilled: 0
+  pointsEarned: 0
+  chapterTime: 0
 --- !u!114 &6742959009901871001
 MonoBehaviour:
   m_ObjectHideFlags: 0

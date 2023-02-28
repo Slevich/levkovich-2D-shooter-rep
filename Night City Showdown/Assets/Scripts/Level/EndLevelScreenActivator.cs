@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class EndLevelScreenActivator : MonoBehaviour
 {
-    #region Переменные
+    #region Поля
     [Header("Player HUD which visible on the gameplay.")]
     [SerializeField] private GameObject levelHUD;
     [Header("Panel with chapter score, which shows on the end of level.")]
@@ -18,20 +18,17 @@ public class EndLevelScreenActivator : MonoBehaviour
     [SerializeField] private Text chapterTimeMinutesText;
     [SerializeField] private Text chapterTimeSecondsText;
     [Header("Main character component with UI- and Counts-control.")]
-    [SerializeField] private MainCharUICounts mainCharCounts;
+    [SerializeField] private MainCharStat mainCharStat;
 
-    /// <summary>
-    /// Переменные нужные для расчета из общего времени
-    /// прохождения всей главы в минуты и секунды.
-    /// </summary>
+    /* Переменные нужные для расчета из общего времени
+     * прохождения всей главы в минуты и секунды.
+     */
     private int chapterMinutes;
     private int chapterSeconds;
     #endregion
 
     #region Методы
-    /// <summary>
-    /// В методе Start минуты и секунды обнуляются.
-    /// </summary>
+    // В методе Start минуты и секунды обнуляются.
     private void Start()
     {
         chapterMinutes = 0;
@@ -48,22 +45,21 @@ public class EndLevelScreenActivator : MonoBehaviour
         Time.timeScale = 0;
         levelHUD.SetActive(false);
         endLevelScreen.SetActive(true);
-        chapterNumberText.text = mainCharCounts.chapterNumber.ToString();
-        enemiesKilledText.text = mainCharCounts.enemyKilled.ToString();
-        pointsEarnedText.text = mainCharCounts.pointsEarned.ToString();
+        chapterNumberText.text = mainCharStat.ChapterNumber.ToString();
+        enemiesKilledText.text = mainCharStat.EnemyKilled.ToString();
+        pointsEarnedText.text = mainCharStat.PointsEarned.ToString();
         CalculateMinutesAndSeconds();
         chapterTimeMinutesText.text = chapterMinutes.ToString();
         chapterTimeSecondsText.text = chapterSeconds.ToString();
     }
 
-    /// <summary>
-    /// Метод вычисляет общее количество секунд и минут,
-    /// затраченных на прохождение уровня.
-    /// </summary>
+    /* Метод вычисляет общее количество секунд и минут,
+     * затраченных на прохождение уровня.
+     */
     private void CalculateMinutesAndSeconds()
     {
-        chapterMinutes = Convert.ToInt32(Mathf.Floor(mainCharCounts.chapterTime / 60));
-        chapterSeconds = Convert.ToInt32(Mathf.Floor(mainCharCounts.chapterTime - (chapterMinutes * 60)));
+        chapterMinutes = Convert.ToInt32(Mathf.Floor(mainCharStat.ChapterTime / 60));
+        chapterSeconds = Convert.ToInt32(Mathf.Floor(mainCharStat.ChapterTime - (chapterMinutes * 60)));
     }
     #endregion
 }

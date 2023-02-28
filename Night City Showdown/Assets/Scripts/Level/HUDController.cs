@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Project.GameSettings
 {
-    public class HUDController : MonoBehaviour
+    public class HUDController : BaseMenuManager
     {
         #region Поля
         [Header("Main character game object 'Joy'.")]
@@ -17,48 +17,32 @@ namespace Project.GameSettings
         [SerializeField] private GameObject pauseScreen;
         [Header("Panel with button on pause screen.")]
         [SerializeField] private GameObject buttonsPanel;
-        [Header("Buttons of control music and sounds. ")]
-        [SerializeField] private GameObject musicOffButton;
-        [SerializeField] private GameObject musicOnButton;
-        [SerializeField] private GameObject soundsOffButton;
-        [SerializeField] private GameObject soundsOnButton;
-        [Header("Slider with current position of sounds and music.")]
-        [SerializeField] private Slider musicSlider;
-        [SerializeField] private Slider soundsSlider;
         [Header("Audio source with UI click sound.")]
         [SerializeField] private AudioSource UISoundsSource;
         [Header("All sound sources on level.")]
         [SerializeField] private AudioSource[] soundsSources;
         [Header("All music sources on level.")]
         [SerializeField] private AudioSource[] levelMusicSources;
-        [Header("Arrays with max values of sound and music sources.")]
-        [SerializeField] private float[] soundsMaxVolume;
-        [SerializeField] private float[] musicMaxVolume;
 
-        //Переменная, хранящая в себе референс с классом методов по управлению игровых настроек.
-        private GameSettingsMethods gameSettingsMethods;
-        //Текущие экран и панель.
+        //Массивы, хранящие максимальную громкость источников звука и музыки.
+        private List<float> soundsMaxVolume = new List<float>();
+        private List<float> musicMaxVolume = new List<float>();
+        //Текущие экран.
         private GameObject currentScreen;
-        private GameObject currentPanel;
-        //Текущее положение слайдеров музыки и звуков.
-        private float currentMusicSliderValue;
-        private float currentSoundsSliderValue;
         #endregion
 
         #region Методы
-
-        /// <summary>
-        /// На старте, получаем компонет в классом методов по управлению настройками.
-        /// Загружаем настройки.
-        /// Передаем в значение слайдеров те, которые сохранены в глобальном классе.
-        /// В текущий экран передаем HUD игрока.
-        /// Текущая панель - панель с кнопками.
-        /// Получаем максимальные значения источников звука и музыки.
-        /// После чего обновляем уровень звуков и музыка в соответствии с настройками.
-        /// </summary>
+        /* На старте, получаем компонет в классом методов по управлению настройками.
+         * Загружаем настройки.
+         * Передаем в значение слайдеров те, которые сохранены в глобальном классе.
+         * В текущий экран передаем HUD игрока.
+         * Текущая панель - панель с кнопками.
+         * Получаем максимальные значения источников звука и музыки.
+         * После чего обновляем уровень звуков и музыка в соответствии с настройками.
+         */
         private void Start()
         {
-            gameSettingsMethods = GetComponent<GameSettingsMethods>();
+            GetNecessaryComponents();
             gameSettingsMethods.LoadSettings();
             musicSlider.value = GlobalSettings.musicSliderPosition;
             soundsSlider.value = GlobalSettings.soundsSliderPosition;
@@ -68,10 +52,9 @@ namespace Project.GameSettings
             UpdateAudioSourcesVolumes();
         }
 
-        /// <summary>
-        /// При закрытии приложения, передаем текущие значения слайдеров в глобальные значения.
-        /// Сохраняем настройки.
-        /// </summary>
+        /* При закрытии приложения, передаем текущие значения слайдеров в глобальные значения.
+         * Сохраняем настройки.
+         */
         private void OnApplicationQuit()
         {
             GlobalSettings.musicSliderPosition = musicSlider.value;
@@ -79,22 +62,18 @@ namespace Project.GameSettings
             gameSettingsMethods.SaveSettings();
         }
 
-        /// <summary>
-        /// В Update активируем экран паузы по нажатии кнопки.
-        /// Если экран активен - ставим игру на паузу.
-        /// При поднятии кнопки мыши, обновляем значения источников звука.
-        /// Отключаем компоненты игрока, чтобы не совершалось лишних действий.
-        /// </summary>
+        /* В Update активируем экран паузы по нажатии кнопки.
+         * Если экран активен - ставим игру на паузу.
+         * При поднятии кнопки мыши, обновляем значения источников звука.
+         * Отключаем компоненты игрока, чтобы не совершалось лишних действий.
+         */
         private void Update()
         {
-            ActivatePauseScreenOnButton();
-
             if (pauseScreen.activeInHierarchy)
             {
                 Time.timeScale = 0;
                 mainChar.GetComponent<Inputs.MainCharInput>().FireButtonPressed = false;
-                mainChar.GetComponent<MainCharWeapons>().canAim = false;
-                mainChar.GetComponent<MainCharMovement>().canMove = false;
+                mainChar.GetComponent<MainCharRangeAttack>().CanAttack = false;
 
                 if (Input.GetMouseButtonUp(0))
                 {
@@ -105,41 +84,8 @@ namespace Project.GameSettings
             }
             else
             {
-                mainChar.GetComponent<MainCharWeapons>().canAim = true;
-                mainChar.GetComponent<MainCharMovement>().canMove = true;
+                mainChar.GetComponent<MainCharRangeAttack>().CanAttack = true;
                 Time.timeScale = 1;
-            }
-        }
-
-        /// <summary>
-        /// Перезапуск текущей сцены.
-        /// </summary>
-        public void OnClickRetry()
-        {
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
-        }
-
-        /// <summary>
-        /// Запуск сцены главного меню.
-        /// </summary>
-        public void OnClickMainMenu()
-        {
-            SceneManager.LoadSceneAsync(0);
-        }
-
-        /// <summary>
-        /// Запуск следующей сцены. Если индекс следующей сцены больше последнего,
-        /// то запускается сцена главного меню.
-        /// </summary>
-        public void OnClickNext()
-        {
-            if (SceneManager.GetActiveScene().buildIndex < 5)
-            {
-                SceneManager.LoadSceneAsync((SceneManager.GetActiveScene().buildIndex) + 1);
-            }
-            else
-            {
-                SceneManager.LoadSceneAsync(0);
             }
         }
 
@@ -148,7 +94,7 @@ namespace Project.GameSettings
        /// Если текущий экран - экран паузы, то все источники музыка
        /// ставятся на паузу. Если нет - проигрываются.
        /// </summary>
-       /// <param name="nextScreen"></param>
+       /// <param name="nextScreen">Следующий активируемый экран.</param>
         public void ChangeScreenOnClick(GameObject nextScreen)
         {
             currentScreen.SetActive(false);
@@ -178,65 +124,76 @@ namespace Project.GameSettings
         }
 
         /// <summary>
-        /// При нажатии на кнопку Escape, если текущий экран не экран паузы,
-        /// открывается он.
-        /// Если текущий экран - экран паузы, то экран паузы скрывается.
+        /// При смене панели, передаем значения слайдеров в глобальные переменны.
+        /// Сохраняем настройки. Меняем панель.
         /// </summary>
-        private void ActivatePauseScreenOnButton()
+        /// <param name="nextPanel">Следующая активируемая панель.</param>
+        public override void ChangePanel(GameObject nextPanel)
         {
-            if (mainChar.GetComponent<Inputs.MainCharInput>().EscapeButtonPressed && currentScreen != pauseScreen)
-            {
-                currentScreen.SetActive(false);
-                pauseScreen.SetActive(true);
-                currentScreen = pauseScreen;
-            }
-            else if (mainChar.GetComponent<Inputs.MainCharInput>().EscapeButtonPressed && currentScreen == pauseScreen)
-            {
-                currentScreen.SetActive(false);
-                levelPlayableHUD.SetActive(true);
-                currentScreen = levelPlayableHUD;
-            }
-        }
-
-        /// <summary>
-        /// Меняет текущую панель.
-        /// </summary>
-        /// <param name="nextPanel"></param>
-        public void ChangePanelOnClick(GameObject nextPanel)
-        {
+            GlobalSettings.musicSliderPosition = musicSlider.value;
+            GlobalSettings.soundsSliderPosition = soundsSlider.value;
+            gameSettingsMethods.SaveSettings();
             currentPanel.SetActive(false);
             nextPanel.SetActive(true);
             currentPanel = nextPanel;
         }
 
         /// <summary>
-        /// Проигрывает звук клика в меню.
+        /// Метод загружает сцену по индексу.
         /// </summary>
-        public void PlayClickSound()
+        /// <param name="SceneIndex">Индекс сцены в билде.</param>
+        public override void LoadSceneOnClick(int SceneIndex)
         {
-            UISoundsSource.Play();
+            if (SceneIndex < 5) SceneManager.LoadSceneAsync(SceneIndex);
+            else SceneManager.LoadSceneAsync(0);
         }
 
         /// <summary>
-        /// Получаем максимальную громкость источников звука и
-        /// музыки в цикле.
+        /// Метод загружает текущую сцену.
         /// </summary>
+        public void ReloadCurrentSceneOnClick()
+        {
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        /// <summary>
+        /// Метод загружает следующую сцену по индексу.
+        /// </summary>
+        public void LoadNextSceneOnClick()
+        {
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            if (sceneIndex < 5) SceneManager.LoadSceneAsync(sceneIndex + 1);
+            else SceneManager.LoadSceneAsync(0);
+        }
+
+        /// <summary>
+        /// Метод проигрывает звук клика.
+        /// </summary>
+        /// <param name="ClickSound">Аудио клип со звуком клика.</param>
+        public override void PlaySoundOnClick(AudioClip ClickSound)
+        {
+            UISoundsSource.clip = ClickSound;
+            UISoundsSource.Play();
+        }
+
+        //Получаем максимальную громкость источников звука и музыки в цикле.
         private void UpdateMaxVolumes()
         {
             for (int a = 0; a < levelMusicSources.Length; a++)
             {
-                musicMaxVolume[a] = levelMusicSources[a].volume;
+                musicMaxVolume.Add(levelMusicSources[a].volume);
             }
 
             for (int i = 0; i < soundsSources.Length; i++)
             {
                 if (i == 0)
                 {
-                    soundsMaxVolume[i] = UISoundsSource.volume;
+                    soundsMaxVolume.Add(UISoundsSource.volume);
                 }
                 else
                 {
-                    soundsMaxVolume[i] = soundsSources[i].volume;
+                    soundsMaxVolume.Add(soundsSources[i].volume);
                 }
             }
         }
@@ -288,11 +245,10 @@ namespace Project.GameSettings
             soundsOnButton.SetActive(false);
         }
 
-        /// <summary>
-        /// Метод устанавливает в циклах громкость источников звука,
-        /// в соответствии с положениями слайдеров, опираясь на их
-        /// максимальную громкость.
-        /// </summary>
+        /* Метод устанавливает в циклах громкость источников звука,
+         * в соответствии с положениями слайдеров, опираясь на их
+         * максимальную громкость.
+         */
         private void UpdateAudioSourcesVolumes()
         {
             for (int i = 0; i < levelMusicSources.Length; i++)
@@ -313,10 +269,9 @@ namespace Project.GameSettings
             }
         }
 
-        /// <summary>
-        /// Метод переключает кнопки включения/выключения звуков/музыки
-        /// в соответствии с положением слайдеров.
-        /// </summary>
+        /* Метод переключает кнопки включения/выключения звуков/музыки
+         * в соответствии с положением слайдеров.
+         */
         private void UpdateButtons()
         {
             if (musicSlider.value == 0)

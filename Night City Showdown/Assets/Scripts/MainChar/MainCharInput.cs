@@ -6,10 +6,7 @@ namespace Project.Inputs
 {
     public class MainCharInput : MonoBehaviour
     {
-        #region Переменные
-        //Это публичные переменные, обозначающие
-        //нажата ли та или иная клавиша.
-        //Скрыты, чтобы не перегружать инспектор.
+        #region Свойства
         public float HorizontalDirection { get; set; }
         public bool InputIsActive { get; set; }
         public bool JumpButtonPressed { get; set; }
@@ -22,14 +19,14 @@ namespace Project.Inputs
         public bool EscapeButtonPressed { get; set; }
 
         //Переменная, хранящая референс на компонент, управляющий оружием игрока.
-        private MainCharWeapons playerWeapons;
+        private MainCharRangeAttack playerWeapons;
         #endregion
 
         #region Методы
         // На старте получаем компонент.
         private void Start()
         {
-            playerWeapons = GetComponent<MainCharWeapons>();
+            playerWeapons = GetComponent<MainCharRangeAttack>();
             InputIsActive = true;
         }
 
@@ -108,7 +105,7 @@ namespace Project.Inputs
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                playerWeapons.isReloading = true;
+                playerWeapons.IsReloading = true;
                 ReloadButtonPressed = true;
             }
         }

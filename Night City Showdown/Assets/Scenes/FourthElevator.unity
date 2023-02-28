@@ -213,6 +213,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Biker (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4079631609245112209, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011433722434314655, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: IsSpawnObjectOnDeath
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011433722434314655, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: spawnedOnDeathObjectPrefab
+      value: 
+      objectReference: {fileID: 6357570534111176739, guid: 4fc49822d530f3243a90470810474bf9,
+        type: 3}
     - target: {fileID: 5051276348545854918, guid: a5a03e25b008d654ab51da8390d4c770,
         type: 3}
       propertyPath: isSpawner
@@ -224,6 +240,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7924841570768546158, guid: 5dc5471ac6998714c9c71259b56595b6,
         type: 3}
+    - target: {fileID: 7978865410353579732, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 374294886}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5a03e25b008d654ab51da8390d4c770, type: 3}
 --- !u!1 &27195101 stripped
@@ -826,6 +847,22 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7457772496331135540, guid: 2a7e61aae1950b64489b3df6aa0d0033,
+        type: 3}
+      propertyPath: spawnedOnDeathObjectPrefab
+      value: 
+      objectReference: {fileID: 9118688200456810397, guid: 61b4b88c1e43e1344bda408f4b79ee89,
+        type: 3}
+    - target: {fileID: 7457772496331135540, guid: 2a7e61aae1950b64489b3df6aa0d0033,
+        type: 3}
+      propertyPath: IsSpawnObjectOnDeath
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883724900395268183, guid: 2a7e61aae1950b64489b3df6aa0d0033,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 374294886}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a7e61aae1950b64489b3df6aa0d0033, type: 3}
 --- !u!1 &161249793 stripped
@@ -1697,16 +1734,16 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1704279791}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &374294888 stripped
+--- !u!114 &374294886 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6742959009901871003, guid: 19eb4fc67fb22fb43a7c84ff5b98cdfa,
+  m_CorrespondingSourceObject: {fileID: 3969995041888689446, guid: 19eb4fc67fb22fb43a7c84ff5b98cdfa,
     type: 3}
   m_PrefabInstance: {fileID: 1704279791}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374294885}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68662ba6850b1654888db447ded1a6c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5caa5398d46c6e143be1cce841b650e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &387430994
@@ -3200,6 +3237,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1445875871}
     m_Modifications:
+    - target: {fileID: 17153171306483022, guid: 455b17400ef6ba5468377f43b998a07f,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 374294886}
     - target: {fileID: 3042455145717986661, guid: 455b17400ef6ba5468377f43b998a07f,
         type: 3}
       propertyPath: m_Radius
@@ -3406,7 +3448,7 @@ PrefabInstance:
     - target: {fileID: 319631799523370673, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
         type: 3}
       propertyPath: m_Radius
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 319631800096759716, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
         type: 3}
@@ -3496,6 +3538,22 @@ PrefabInstance:
     - target: {fileID: 319631800855284408, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
         type: 3}
       propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8253770299511095360, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 374294886}
+    - target: {fileID: 8735394825039447624, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
+        type: 3}
+      propertyPath: spawnedOnDeathObjectPrefab
+      value: 
+      objectReference: {fileID: 6357570534111176739, guid: 4fc49822d530f3243a90470810474bf9,
+        type: 3}
+    - target: {fileID: 8735394825039447624, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
+        type: 3}
+      propertyPath: IsSpawnObjectOnDeath
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8735695336867324440, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
@@ -5511,28 +5569,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1893450198}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &903335204 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1578702875863696728, guid: dd9e0ec251d361640a80403c4671610f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1963936350}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &903335205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 903335204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12b40cac9b51abd43b63b6045600423b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCharacter: {fileID: 374294885}
-  weaponNames:
-  - Pistol
-  - Rifle
 --- !u!114 &910437556 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4870860401486298329, guid: c61431327fec44440baf83d17bf48191,
@@ -5970,6 +6006,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Biker
       objectReference: {fileID: 0}
+    - target: {fileID: 4079631609245112209, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978865410353579732, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 374294886}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5a03e25b008d654ab51da8390d4c770, type: 3}
 --- !u!1 &961003408 stripped
@@ -6638,6 +6684,22 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7457772496331135540, guid: 2a7e61aae1950b64489b3df6aa0d0033,
+        type: 3}
+      propertyPath: spawnedOnDeathObjectPrefab
+      value: 
+      objectReference: {fileID: 7924841570768546158, guid: 5dc5471ac6998714c9c71259b56595b6,
+        type: 3}
+    - target: {fileID: 7457772496331135540, guid: 2a7e61aae1950b64489b3df6aa0d0033,
+        type: 3}
+      propertyPath: IsSpawnObjectOnDeath
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883724900395268183, guid: 2a7e61aae1950b64489b3df6aa0d0033,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 374294886}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a7e61aae1950b64489b3df6aa0d0033, type: 3}
 --- !u!1 &1072919300 stripped
@@ -8152,6 +8214,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1445875871}
     m_Modifications:
+    - target: {fileID: 17153171306483022, guid: 455b17400ef6ba5468377f43b998a07f,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 374294886}
     - target: {fileID: 3042455145717986661, guid: 455b17400ef6ba5468377f43b998a07f,
         type: 3}
       propertyPath: m_Radius
@@ -9893,10 +9960,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 696392460}
     m_Modifications:
+    - target: {fileID: 319631799523370673, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
+        type: 3}
+      propertyPath: m_Radius
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 319631800096759716, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
         type: 3}
       propertyPath: m_Radius
-      value: 2.8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 319631800855284404, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
         type: 3}
@@ -9977,6 +10049,22 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8253770299511095360, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 374294886}
+    - target: {fileID: 8735394825039447624, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
+        type: 3}
+      propertyPath: spawnedOnDeathObjectPrefab
+      value: 
+      objectReference: {fileID: 7924841570768546158, guid: 5dc5471ac6998714c9c71259b56595b6,
+        type: 3}
+    - target: {fileID: 8735394825039447624, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
+        type: 3}
+      propertyPath: IsSpawnObjectOnDeath
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8735695336867324440, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
         type: 3}
@@ -11108,6 +11196,11 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7883724900395268183, guid: 2a7e61aae1950b64489b3df6aa0d0033,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 374294886}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a7e61aae1950b64489b3df6aa0d0033, type: 3}
 --- !u!1 &1753828819 stripped
@@ -12967,16 +13060,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 903335205, guid: dd9e0ec251d361640a80403c4671610f, type: 3}
+      propertyPath: playerAttack
+      value: 
+      objectReference: {fileID: 569890612}
     - target: {fileID: 1578702875863696728, guid: dd9e0ec251d361640a80403c4671610f,
         type: 3}
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1578702875863696729, guid: dd9e0ec251d361640a80403c4671610f,
-        type: 3}
-      propertyPath: playerWeapons
-      value: 
-      objectReference: {fileID: 569890612}
     - target: {fileID: 1578702875863696734, guid: dd9e0ec251d361640a80403c4671610f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13032,8 +13124,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1578702875863696729, guid: dd9e0ec251d361640a80403c4671610f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd9e0ec251d361640a80403c4671610f, type: 3}
 --- !u!1 &1964561732
 GameObject:
@@ -13825,7 +13916,7 @@ MonoBehaviour:
   pointsEarnedText: {fileID: 1939498940}
   chapterTimeMinutesText: {fileID: 1359420514}
   chapterTimeSecondsText: {fileID: 513471111}
-  mainCharCounts: {fileID: 374294888}
+  mainCharStat: {fileID: 374294886}
 --- !u!114 &2133593255
 MonoBehaviour:
   m_ObjectHideFlags: 0

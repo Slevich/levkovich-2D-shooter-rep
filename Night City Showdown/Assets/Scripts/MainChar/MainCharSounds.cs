@@ -30,7 +30,7 @@ public class MainCharSounds : MonoBehaviour
     [SerializeField] private AudioClip ammoSound;
     [SerializeField] private AudioClip deathSound;
 
-    /* Переменная типа int необходимая для присваивани ей рандомного числа, 
+    /* Переменная типа int необходимая для присваивания ей рандомного числа, 
      * являющегося номером аудио-клипа из массива.
      */
     private int clipNumber;

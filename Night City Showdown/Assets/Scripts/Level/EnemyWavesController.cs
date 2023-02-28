@@ -6,7 +6,7 @@ using UnityEngine.Playables;
 
 public class EnemyWavesController : MonoBehaviour
 {
-    #region Переменные
+    #region Поля
     [Header("Timeline, which plays, when the last enemies wave is dead.")]
     [SerializeField] private PlayableDirector endTimeline;
     [Header("Arrays of enemies in each wave.")]
@@ -22,45 +22,45 @@ public class EnemyWavesController : MonoBehaviour
     private GameObject[] currentWave;
     //Номер волны.
     private int waveNumber;
-    //Количество живых врагов в волне.
-    private int aliveEnemiesInWave;
     //Переменная для обнуления таймера.
     private float currentCheckTimer;
     #endregion
 
     #region Методы
-    /// <summary>
-    /// На старте, номер волны равен 1.
-    /// Текущая волна равна врагам первой волны.
-    /// В переменную с живыми врагами, присваиваем
-    /// длину массива текущей волны.
-    /// Присваиваем в таймер для обнуления таймер проверки.
-    /// </summary>
+    /* На старте, номер волны равен 1.
+     * Текущая волна равна врагам первой волны.
+     * В переменную с живыми врагами, присваиваем
+     * длину массива текущей волны.
+     * Присваиваем в таймер для обнуления таймер проверки.
+     */
     private void Start()
     {
         waveNumber = 1;
         currentWave = firstWaveEnemies;
-        aliveEnemiesInWave = currentWave.Length;
         currentCheckTimer = checkTimer; 
     }
 
-    /// <summary>
-    /// В Update присваиваем в переменную текущей волны,
-    /// необходимую волну, в зависимости от номера волны.
-    /// Проверяем живых врагов в волне.
-    /// Активируем следующую.
-    /// </summary>
+    /* В Update присваиваем в переменную текущей волны,
+     * необходимую волну, в зависимости от номера волны.
+     * Проверяем живых врагов в волне.
+     * Активируем следующую.
+     */
     private void Update()
     {
-        UpdateCurrentWave();
-        CheckCurrentWavePerTime();
-        ActivateNext();
+        if (waveNumber <= 4)
+        {
+            UpdateCurrentWave();
+            CheckCurrentWavePerTime();
+        }
+        else if (waveNumber > 4)
+        {
+            endTimeline.Play();
+        }
     }
 
-    /// <summary>
-    /// Метод присваивает в текущую волну, в зависимости
-    /// от номера волны, ту или иную волну врагов.
-    /// </summary>
+    /* Метод присваивает в текущую волну, в зависимости
+     * от номера волны, ту или иную волну врагов.
+     */
     private void UpdateCurrentWave()
     {
         switch (waveNumber)
@@ -83,17 +83,18 @@ public class EnemyWavesController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Метод каждые несколько секунд, проверяет
-    /// жив ли враг в волне. Если он равен нулю,
-    /// то вычитается единица из количества живых врагов в волне.
-    /// </summary>
+    /* Метод каждые несколько секунд, проверяет
+     * жив ли враг в волне. Если он равен нулю,
+     * то вычитается единица из количества живых врагов в волне.
+     */
     private void CheckCurrentWavePerTime()
     {
         checkTimer -= Time.deltaTime;
 
         if (checkTimer <= 0)
         {
+            int aliveEnemiesInWave = currentWave.Length;
+
             for (int i = 0; i < currentWave.Length; i++)
             {
                 if (currentWave[i] == null)
@@ -101,6 +102,8 @@ public class EnemyWavesController : MonoBehaviour
                     aliveEnemiesInWave--;
                 }
             }
+
+            ActivateNext(aliveEnemiesInWave);
 
             if (aliveEnemiesInWave > 0)
             {
@@ -110,24 +113,24 @@ public class EnemyWavesController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Если количество живых врагов в волне становится равно или меньше нуля
-    /// и при этом номер волны не больше последней, то активируем следующую волну. 
-    /// Увеличиваем номер волны на один. Присваиваем в переменную с количеством
-    /// живых врагов - длину массива текущей волны. 
-    /// Если номер волны больше последнего, то проигрывается финальная катсцена.
-    /// </summary>
-    private void ActivateNext()
+    
+    /* Если количество живых врагов в волне становится равно или меньше нуля
+     * и при этом номер волны не больше последней, то активируем следующую волну. 
+     * Увеличиваем номер волны на один. Присваиваем в переменную с количеством
+     * живых врагов - длину массива текущей волны. 
+     * Если номер волны больше последнего, то проигрывается финальная катсцена.
+     */
+    private void ActivateNext(int AliveEnemiesInWave)
     {
-        if (aliveEnemiesInWave <= 0 && waveNumber <= 4)
+        if (AliveEnemiesInWave <= 0)
         {
             waveNumber++;
-            enemyWavesObjects[waveNumber - 1].SetActive(true);
-            aliveEnemiesInWave = currentWave.Length;
-        }
-        else if (waveNumber > 4)
-        {
-            endTimeline.Play();
+
+            if (waveNumber <= enemyWavesObjects.Length)
+            {
+                enemyWavesObjects[waveNumber - 1].SetActive(true);
+                AliveEnemiesInWave = currentWave.Length;
+            }
         }
     }
     #endregion

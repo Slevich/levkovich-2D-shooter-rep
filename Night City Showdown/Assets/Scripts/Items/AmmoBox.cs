@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AmmoBox : MonoBehaviour
 {
-    #region Переменные
+    #region Поля
     [Header("Number of ammo, on which all bullets count increase.")]
     [SerializeField] private float ammoIncrease;
     [Header("String name of box type: 'Pistol' or 'Rifle'.")]
@@ -12,17 +12,15 @@ public class AmmoBox : MonoBehaviour
     #endregion
 
     #region Методы
-    /// <summary>
-    /// При вхождении в триггер, в зависимости от стрингового типа объекта
-    /// к количеству патронов определенного оружия прибавляется значение ammoIncrease.
-    /// </summary>
-    /// <param name="collision"></param>
+    /* При вхождении в триггер, в зависимости от стрингового типа объекта
+     * к количеству патронов определенного оружия прибавляется значение ammoIncrease.
+     */
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            if (ammoBoxType == "Pistol") collision.GetComponent<MainCharWeapons>().allPistolBullets += ammoIncrease;
-            else if (ammoBoxType == "Rifle") collision.GetComponent<MainCharWeapons>().allRifleBullets += ammoIncrease;
+            if (ammoBoxType == "Pistol") collision.GetComponent<MainCharRangeAttack>().allPistolBullets += ammoIncrease;
+            else if (ammoBoxType == "Rifle") collision.GetComponent<MainCharRangeAttack>().allRifleBullets += ammoIncrease;
             collision.GetComponent<MainCharSounds>().PlayAmmoPickingUpSound();
             Destroy(gameObject);
         }

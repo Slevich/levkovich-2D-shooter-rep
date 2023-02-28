@@ -13,8 +13,8 @@ public class MainCharRangeTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            GetComponentInParent<MainCharWeapons>().enemyInRange = true;
-            GetComponentInParent<MainCharWeapons>().enemyCollider = collision;
+            GetComponentInParent<MainCharMeleeAttack>().EnemyInRange = true;
+            GetComponentInParent<MainCharMeleeAttack>().EnemyCollider = collision;
         }
     }
 
@@ -26,8 +26,8 @@ public class MainCharRangeTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            GetComponentInParent<MainCharWeapons>().enemyInRange = false;
-            GetComponentInParent<MainCharWeapons>().enemyCollider = null;
+            GetComponentInParent<MainCharMeleeAttack>().EnemyInRange = false;
+            GetComponentInParent<MainCharMeleeAttack>().EnemyCollider = null;
         }
     }
     #endregion

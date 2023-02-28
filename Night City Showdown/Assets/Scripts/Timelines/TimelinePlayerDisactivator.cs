@@ -21,7 +21,7 @@ namespace Project.Inputs
         {
             player.GetComponent<MainCharInput>().InputIsActive = false;
             player.GetComponent<MainCharInput>().HorizontalDirection = 0;
-            player.GetComponent<MainCharWeapons>().canAim = false;
+            player.GetComponent<MainCharRangeAttack>().CanAttack = false;
             player.GetComponent<Animator>().SetBool("IsJumping", false);
             player.GetComponent<Animator>().SetBool("IsDoubleJumping", false);
             player.GetComponent<Animator>().SetFloat("Speed", 0f);
@@ -34,7 +34,7 @@ namespace Project.Inputs
         public void EnablePlayerParams()
         {
             player.GetComponent<MainCharInput>().InputIsActive = true;
-            player.GetComponent<MainCharWeapons>().canAim = true;
+            player.GetComponent<MainCharRangeAttack>().CanAttack = true;
         }
         #endregion
     }

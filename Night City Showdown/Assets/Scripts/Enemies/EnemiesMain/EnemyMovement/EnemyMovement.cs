@@ -12,9 +12,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float speed;
     [Header("The distance at which the enemy stops when reaching a point.")]
     [SerializeField] private float enemyStopDistance;
-    [Header("Transform component of the player game object (Joy).")]
-    [SerializeField] private Transform playerTransform;
-
+    
+    private Transform playerTransform;
     //Точка, к которой направляется враг.
     private Vector2 targetPoint;
     //Переключатель, обозначающий, движется ли враг.
@@ -29,12 +28,12 @@ public class EnemyMovement : MonoBehaviour
     private bool timerGenerated;
     //Время, которое ждет враг перед продолжением движения.
     private float waitingTimer;
+    //Переключатель, обозначающий смотрит ли враг вперед или нет.
     private bool isLookForward;
-    protected float movementMagnitude;
     #endregion
 
     #region Свойства
-    public Transform PlayerTransform { get { return playerTransform; } }
+    public Transform PlayerTransform { get { return playerTransform; } set { playerTransform = value; } }
     public Vector2 TargetPoint { get { return targetPoint; } protected set { targetPoint = value; } }
     public bool IsMoving { get { return isMoving; } set { isMoving = value; } }
     public bool PlayerDetected { get { return playerDetected; } set { playerDetected = value; } }
@@ -46,10 +45,10 @@ public class EnemyMovement : MonoBehaviour
     protected float MinWaitBorder { get { return minWaitBorder; } }
     protected float MaxWaitBorder { get { return maxWaitBorder; } }
     protected float WaitingTimer { get { return waitingTimer; } set { waitingTimer = value; } }
-    public float MovementMagnitude { get { return movementMagnitude; } }
     #endregion
 
     #region Методы
+    //В OnValidate - следим за изменениями полей.
     private void OnValidate()
     {
         if (speed < 0)
@@ -71,24 +70,30 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    protected void UpdateEnemySpriteFlip(Rigidbody2D enemyRB, SpriteRenderer enemySR)
+    //Метод отслеживает положение точки относительно трансформа врага и поворачивает спрайти в направлении точки.
+    protected void UpdateEnemySpriteFlip(Rigidbody2D enemyRB, SpriteRenderer enemySR, Vector2 TargetPoint)
     {
-        if (enemyRB.velocity.x > 0)
+        if (TargetPoint.x >= transform.position.x)
         {
             enemySR.flipX = false;
         }
-        else if (enemyRB.velocity.x < 0)
+        else if (TargetPoint.x < transform.position.x)
         {
             enemySR.flipX = true;
         }
     }
 
+    //Если спрайт не повернут - враг смотрит вперед, если повернут - не смотрит вперед.
     protected void GetEnemyLookDirection(SpriteRenderer enemySR)
     {
         if (enemySR.flipX == false) isLookForward = true;
         else isLookForward = false;
     }
 
+    /*Если стена не замечена врагом, генерируем точку на основе рандомного числа.
+     *Если стена замечена, то генерируем точку в противоложном направлении.
+     *Переключаем bool.
+     */
     protected virtual void GenerateTargetPoint(SpriteRenderer enemySR, CapsuleCollider2D enemyRangeTrigger, CircleCollider2D enemyFindingTrigger)
     {
         if (wallDetected == false)
@@ -100,9 +105,6 @@ public class EnemyMovement : MonoBehaviour
             else SetTargetPoint(new Vector2(Random.Range(transform.position.x - enemyFindingTrigger.radius, 
                                                         transform.position.x - enemyRangeTrigger.size.x), 
                                                         transform.position.y));
-            timerGenerated = false;
-            wallDetected = false;
-            isMoving = true;
         }
         else
         {
@@ -111,47 +113,24 @@ public class EnemyMovement : MonoBehaviour
                 SetTargetPoint(new Vector2(Random.Range(transform.position.x + enemyRangeTrigger.size.x, 
                                                         transform.position.x + enemyFindingTrigger.radius), 
                                                         transform.position.y));
-                timerGenerated = false;
-                wallDetected = false;
-                isMoving = true;
             }
             else
             {
                 SetTargetPoint(new Vector2(Random.Range(transform.position.x - enemyFindingTrigger.radius, 
                                                         transform.position.x - enemyRangeTrigger.size.x), 
                                                         transform.position.y));
-                timerGenerated = false;
-                wallDetected = false;
-                isMoving = true;
             }
         }
+
+        timerGenerated = false;
+        wallDetected = false;
+        isMoving = true;
     }
 
-    protected virtual void EnemyGoesToPosition(Vector2 targetPoint, EnemyChecks enemyChecks, Rigidbody2D enemyRB, EnemyAnimation enemyAnim)
-    {
-        enemyAnim.ChangeEnemyState(EnemyAnimation.EnemyStates.Movement);
-        MoveCharacter(targetPoint, enemyChecks, enemyRB);
-        
-        if (playerDetected == false)
-        {
-            EnemyReachPoint();
+    //Метод расчитывает дистанцию до цели врага. Если она меньше дистанции остановки - значит враг достиг точки.
+    protected void EnemyReachPoint() => enemyReachPoint = Vector2.Distance(transform.position, targetPoint) <= enemyStopDistance;
 
-            if (enemyReachPoint) StopEnemy(enemyAnim, enemyRB);
-        }
-    }
-
-    protected void EnemyReachPoint()
-    {
-        if (Vector2.Distance(transform.position, targetPoint) <= enemyStopDistance)
-        {
-            enemyReachPoint = true;
-        }
-        else
-        {
-            enemyReachPoint = false;
-        }
-    }
-
+    //Метод останавливает врага, если он в движении.
     protected void StopEnemy(EnemyAnimation enemyAnim, Rigidbody2D enemyRB)
     {
         if (isMoving)
@@ -162,6 +141,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    //Метод расчитывает направление движения врага.
     protected Vector2 CalculateMovementDirection(Vector2 targetPoint)
     {
         Vector2 enemyTarget = targetPoint;
@@ -171,11 +151,10 @@ public class EnemyMovement : MonoBehaviour
         return movingDirection;
     }
 
-    protected virtual void MoveCharacter(Vector2 targetPoint, EnemyChecks enemyChecks, Rigidbody2D enemyRB)
-    {
-        enemyRB.velocity = CalculateMovementDirection(targetPoint) * speed;
-    }
+    //Метод задает направление в rigidbody врага на основе расчета направления движения относительно точки.
+    protected virtual void MoveCharacter(Vector2 targetPoint, EnemyChecks enemyChecks, Rigidbody2D enemyRB) => enemyRB.velocity = CalculateMovementDirection(targetPoint) * speed;
 
+    //Метод генерирует таймер ожидания врага, по истечении которого генерируется точка, к которой пойдет враг.
     protected virtual void WaitingTimerBeforeMovement(EnemyAnimation enemyAnim, SpriteRenderer enemySR, CapsuleCollider2D enemyRangeTrigger, CircleCollider2D enemyFindingTrigger)
     {
         enemyAnim.ChangeEnemyState(EnemyAnimation.EnemyStates.Movement);
@@ -194,6 +173,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    protected void SetTargetPoint(Vector2 NewTargetPoint) => targetPoint = NewTargetPoint;
+    //Метод позволяет задать текущую точку движения.
+    public void SetTargetPoint(Vector2 NewTargetPoint) => targetPoint = NewTargetPoint;
     #endregion
 }

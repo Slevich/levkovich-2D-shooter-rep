@@ -353,7 +353,7 @@ PrefabInstance:
     - target: {fileID: 5560590957175541673, guid: c61431327fec44440baf83d17bf48191,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5644857067945630930, guid: c61431327fec44440baf83d17bf48191,
         type: 3}
@@ -3652,6 +3652,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 232996542}
     m_Modifications:
+    - target: {fileID: 683931619095891215, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: voidRayDistance
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 910304810919783849, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 2004522069}
     - target: {fileID: 1726248929862516359, guid: a5a03e25b008d654ab51da8390d4c770,
         type: 3}
       propertyPath: playerTransform
@@ -3727,6 +3737,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Biker (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4079631609245112209, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978865410353579732, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 2004522065}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5a03e25b008d654ab51da8390d4c770, type: 3}
 --- !u!4 &258065110 stripped
@@ -6976,6 +6996,32 @@ PrefabInstance:
       propertyPath: isSpawnObjectAfterDeath
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5241483304937208662, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 2004522069}
+    - target: {fileID: 8253770299511095360, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 2004522065}
+    - target: {fileID: 8735394825039447624, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
+        type: 3}
+      propertyPath: IsSpawnObjectOnDeath
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8735394825039447624, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
+        type: 3}
+      propertyPath: spawnPointDifference
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8735394825039447624, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
+        type: 3}
+      propertyPath: spawnedOnDeathObjectPrefab
+      value: 
+      objectReference: {fileID: 2843395616726421491, guid: 2e29915ba8df8b641af4e73968151bcb,
+        type: 3}
     - target: {fileID: 8735695336867324440, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
         type: 3}
       propertyPath: isSpawner
@@ -7354,6 +7400,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1694375606}
     m_Modifications:
+    - target: {fileID: 1000218717663092433, guid: 1fd4b452b24e91e4d9bb097aeba0e9ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746318998812634676, guid: 1fd4b452b24e91e4d9bb097aeba0e9ea,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 2004522065}
     - target: {fileID: 5795288548318055264, guid: 1fd4b452b24e91e4d9bb097aeba0e9ea,
         type: 3}
       propertyPath: m_Name
@@ -7439,6 +7495,11 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 4.2
       objectReference: {fileID: 0}
+    - target: {fileID: 8087688664244238598, guid: 1fd4b452b24e91e4d9bb097aeba0e9ea,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 2004522069}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fd4b452b24e91e4d9bb097aeba0e9ea, type: 3}
 --- !u!4 &605811136 stripped
@@ -9091,7 +9152,7 @@ MonoBehaviour:
   pointsEarnedText: {fileID: 4496429}
   chapterTimeMinutesText: {fileID: 4496428}
   chapterTimeSecondsText: {fileID: 4496427}
-  mainCharCounts: {fileID: 2004522066}
+  mainCharStat: {fileID: 2004522065}
 --- !u!1001 &718552743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12495,6 +12556,16 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 2004522069}
+    - target: {fileID: 5241483304937208662, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 2004522069}
+    - target: {fileID: 8253770299511095360, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 2004522065}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dfa29d5a6d7e61409c0870d6565c73e, type: 3}
 --- !u!1 &924820013
@@ -14220,6 +14291,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 232996542}
     m_Modifications:
+    - target: {fileID: 683931619095891215, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: voidRayDistance
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 910304810919783849, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 2004522069}
     - target: {fileID: 1726248929862516359, guid: a5a03e25b008d654ab51da8390d4c770,
         type: 3}
       propertyPath: playerTransform
@@ -14295,6 +14376,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Biker (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4079631609245112209, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978865410353579732, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 2004522065}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5a03e25b008d654ab51da8390d4c770, type: 3}
 --- !u!4 &1125797181 stripped
@@ -19001,6 +19092,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 686126364}
     m_Modifications:
+    - target: {fileID: 910304810919783849, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 2004522069}
     - target: {fileID: 1726248929209955253, guid: a5a03e25b008d654ab51da8390d4c770,
         type: 3}
       propertyPath: m_Size.x
@@ -19086,6 +19182,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Biker (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4079631609245112209, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978865410353579732, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 2004522065}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5a03e25b008d654ab51da8390d4c770, type: 3}
 --- !u!1 &1426553821 stripped
@@ -21365,6 +21471,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 232996542}
     m_Modifications:
+    - target: {fileID: 683931619095891215, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: voidRayDistance
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 910304810919783849, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 2004522069}
     - target: {fileID: 1726248929862516359, guid: a5a03e25b008d654ab51da8390d4c770,
         type: 3}
       propertyPath: playerTransform
@@ -21440,6 +21556,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Biker
       objectReference: {fileID: 0}
+    - target: {fileID: 4079631609245112209, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978865410353579732, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 2004522065}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5a03e25b008d654ab51da8390d4c770, type: 3}
 --- !u!4 &1604744709 stripped
@@ -21634,6 +21760,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2017629028}
     m_Modifications:
+    - target: {fileID: 910304810919783849, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 2004522069}
     - target: {fileID: 1726248929209955253, guid: a5a03e25b008d654ab51da8390d4c770,
         type: 3}
       propertyPath: m_Size.x
@@ -21714,6 +21845,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Biker (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4079631609245112209, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978865410353579732, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 2004522065}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5a03e25b008d654ab51da8390d4c770, type: 3}
 --- !u!1001 &1653033297
@@ -22646,6 +22787,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2017629028}
     m_Modifications:
+    - target: {fileID: 910304810919783849, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 2004522069}
     - target: {fileID: 1726248929209955253, guid: a5a03e25b008d654ab51da8390d4c770,
         type: 3}
       propertyPath: m_Size.x
@@ -22726,6 +22872,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Biker (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4079631609245112209, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978865410353579732, guid: a5a03e25b008d654ab51da8390d4c770,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 2004522065}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5a03e25b008d654ab51da8390d4c770, type: 3}
 --- !u!4 &1721667312 stripped
@@ -26723,16 +26879,16 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 2004522056}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2004522066 stripped
+--- !u!114 &2004522065 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6742959009901871003, guid: 19eb4fc67fb22fb43a7c84ff5b98cdfa,
+  m_CorrespondingSourceObject: {fileID: 3969995041888689446, guid: 19eb4fc67fb22fb43a7c84ff5b98cdfa,
     type: 3}
   m_PrefabInstance: {fileID: 2004522056}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004522057}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68662ba6850b1654888db447ded1a6c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5caa5398d46c6e143be1cce841b650e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &2004522069 stripped

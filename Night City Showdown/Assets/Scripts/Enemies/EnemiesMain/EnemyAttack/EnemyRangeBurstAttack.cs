@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyRangeBurstAttack : EnemyAttack
 {
-    #region Fields
+    #region Поля
     [Header("The amount of time that passes between attacks.")]
     [SerializeField] private float attackInterval;
     [Header("The amount of time that passes between the release of a new bullet.")]
@@ -29,6 +29,8 @@ public class EnemyRangeBurstAttack : EnemyAttack
     [SerializeField] private Transform weaponForwardMuzzlePosition;
     [SerializeField] private Transform weaponBackwardMuzzlePosition;
 
+    //Компоненты врага.
+    private SpriteRenderer enemySR;
     private GroundedEnemyMovement enemyMovement;
     //Transform, который хранит активную точку, откуда вылетают пули.
     private Transform activeMuzzle;
@@ -40,22 +42,30 @@ public class EnemyRangeBurstAttack : EnemyAttack
     private int reloadBulletsPerAttack;
     #endregion
 
-    #region Methods
-    #region DefaultMethods
+    #region Методы
+    #region Классические методы
+    //Получаем компоненты и присваиваем значения переменным для обнуления.
     private void Awake()
     {
         enemyMovement = GetComponent<GroundedEnemyMovement>();
+        enemySR = GetComponent<SpriteRenderer>();
         reloadAttackInterval = attackInterval;
         reloadBulletsPerAttack = bulletsPerAttack;
         reloadFireRate = attackFireRate;
     }
 
+    /*В апдейте обновляем текущие активные руки с оружие и точку вылета пули.
+     *Если игрок в радиусе атаки, поварачиваем спрайт в направлении игрока, запускаем атаку.
+     *Если игрок замечен, целимся в него.
+     *В противном случае, целимся в направлении движения и обнуляем таймеры.
+     */
     private void Update()
     {
         UpdateWeaponHandsAndMuzzle();
 
         if (PlayerInRange)
         {
+            enemySR.flipX = enemyMovement.PlayerTransform.position.x >= transform.position.x ? false : true;
             BurstAttack();
         }
         else if (enemyMovement.PlayerDetected)
@@ -72,7 +82,11 @@ public class EnemyRangeBurstAttack : EnemyAttack
     }
     #endregion
 
-    #region CustomMethods
+    #region Созданные методы
+    /*Если враг смотрит вперед, активная точка вылета пули - в передних руках.
+     * При этом, переключает активные руки врага.
+     * В обратном случае - наоборот.
+     */
     private void UpdateWeaponHandsAndMuzzle()
     {
         if (enemyMovement.IsLookForward)
@@ -89,6 +103,7 @@ public class EnemyRangeBurstAttack : EnemyAttack
         }
     }
 
+    //Метод рассчитывает направление полета пули относительно положения игрока.
     private Vector2 CalculateBulletDirection()
     {
         Vector2 targetPosition = new Vector2(enemyMovement.PlayerTransform.position.x, enemyMovement.PlayerTransform.position.y + lookOffset);
@@ -98,6 +113,15 @@ public class EnemyRangeBurstAttack : EnemyAttack
         return bulletDirection = heading / bulletDistance;
     }
 
+    /*Во время атаки, враг целится в игрока.
+     * Запускаем таймер интервала атаки, когда они истекает,
+     * запускаем таймер между выстрелами.
+     * Если таймер между пулями вышел и количество пуль за атаку больше нуля,
+     * Спавним визуальный эффект пули и саму пулю, направляем её,
+     * отнимаем единицу пули за атак и обнуляем таймер между пулями.
+     * Если количество пуль за атаку стало меньше или равно нулю,
+     * то обнуляем таймеры и пули за атаку.
+     */
     private void BurstAttack()
     {
         Aiming(new Vector2(enemyMovement.PlayerTransform.position.x, enemyMovement.PlayerTransform.position.y + lookOffset));
@@ -125,6 +149,7 @@ public class EnemyRangeBurstAttack : EnemyAttack
         }
     }
 
+    //Метод направляет активные руки врага на определенную цель.
     private void Aiming(Vector2 AimTarget)
     {
         if (weaponForwardHands.activeInHierarchy)
@@ -136,8 +161,6 @@ public class EnemyRangeBurstAttack : EnemyAttack
             weaponBackwardHands.transform.LookAt(AimTarget);
         }
     }
-
     #endregion
-
     #endregion
 }

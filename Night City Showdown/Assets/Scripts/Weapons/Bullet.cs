@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour
     }
 
     /* При попадании в триггер пуля объектов с тегами
-     * "Земля" или "Враг", спавнит префаб с эффектом и уничтожается.
+     * "Земля" или "Враг", спавнит префаб с эффектом, наносит урон и уничтожается.
      */
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -56,6 +56,12 @@ public class Bullet : MonoBehaviour
         {
             GameObject bulletDestroyVFX = Instantiate(bulletDestroyVFXPrefab, transform.position, Quaternion.identity);
             collision.GetComponent<Health>().ToDamage(damage);
+            Destroy(gameObject);
+        }
+        else if (collision.CompareTag("Destroyable"))
+        {
+            GameObject bulletDestroyVFX = Instantiate(bulletDestroyVFXPrefab, transform.position, Quaternion.identity);
+            collision.GetComponent<ObjectHealth>().ToDamage(damage);
             Destroy(gameObject);
         }
     }

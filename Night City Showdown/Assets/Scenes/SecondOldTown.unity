@@ -802,7 +802,7 @@ GameObject:
   - component: {fileID: 71239845}
   m_Layer: 8
   m_Name: NextLevelDoor
-  m_TagString: Enemy
+  m_TagString: Destroyable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -881,12 +881,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 71239842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f8b85441d889dc42bcc5bd3796fdf76, type: 3}
+  m_Script: {fileID: 11500000, guid: 5884264caf271a34b988eabc8fc20027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyVFX: {fileID: 8387798661533146697, guid: 12c82a4c9709dea448f1e07edf1786cb,
-    type: 3}
-  HPBar: {fileID: 1558878674}
+  healthBarImage: {fileID: 1558878674}
 --- !u!114 &71239846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -896,12 +894,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 71239842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 582517e572af3a844933f08006951034, type: 3}
+  m_Script: {fileID: 11500000, guid: 449f9a94487c53f43b98826a541a6a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 200
   maxHealth: 200
-  isAlive: 1
+  deathVFXPrefab: {fileID: 8387798661533146697, guid: 12c82a4c9709dea448f1e07edf1786cb,
+    type: 3}
+  spawnPointDifference: 0.1
 --- !u!61 &71239847
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4719,6 +4719,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2016304650}
     m_Modifications:
+    - target: {fileID: 17153171306483022, guid: 455b17400ef6ba5468377f43b998a07f,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 729672887}
     - target: {fileID: 3042455145717986661, guid: 455b17400ef6ba5468377f43b998a07f,
         type: 3}
       propertyPath: m_Radius
@@ -4881,6 +4886,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2016304650}
     m_Modifications:
+    - target: {fileID: 5746318998812634676, guid: 1fd4b452b24e91e4d9bb097aeba0e9ea,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 729672887}
     - target: {fileID: 5795288548318055264, guid: 1fd4b452b24e91e4d9bb097aeba0e9ea,
         type: 3}
       propertyPath: m_Name
@@ -5150,6 +5160,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 859039628}
     m_Modifications:
+    - target: {fileID: 17153171306483022, guid: 455b17400ef6ba5468377f43b998a07f,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 729672887}
     - target: {fileID: 1950410516237350087, guid: 455b17400ef6ba5468377f43b998a07f,
         type: 3}
       propertyPath: isSpawner
@@ -5255,6 +5270,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702361523702449671, guid: 455b17400ef6ba5468377f43b998a07f,
+        type: 3}
+      propertyPath: spawnedOnDeathObjectPrefab
+      value: 
+      objectReference: {fileID: 6340752521401542623, guid: 5def97f8db808504aa45d5ca3d1c4368,
+        type: 3}
+    - target: {fileID: 6702361523702449671, guid: 455b17400ef6ba5468377f43b998a07f,
+        type: 3}
+      propertyPath: spawnPointDifference
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 455b17400ef6ba5468377f43b998a07f, type: 3}
@@ -6006,6 +6032,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 859039628}
     m_Modifications:
+    - target: {fileID: 5746318998812634676, guid: 1fd4b452b24e91e4d9bb097aeba0e9ea,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 729672887}
     - target: {fileID: 5795288547477638518, guid: 1fd4b452b24e91e4d9bb097aeba0e9ea,
         type: 3}
       propertyPath: m_Size.x
@@ -42725,16 +42756,28 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 729672885}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &729672889 stripped
+--- !u!114 &729672887 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6742959009901871003, guid: 19eb4fc67fb22fb43a7c84ff5b98cdfa,
+  m_CorrespondingSourceObject: {fileID: 3969995041888689446, guid: 19eb4fc67fb22fb43a7c84ff5b98cdfa,
     type: 3}
   m_PrefabInstance: {fileID: 729672885}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729672886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68662ba6850b1654888db447ded1a6c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5caa5398d46c6e143be1cce841b650e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &729672893 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6742959009901870996, guid: 19eb4fc67fb22fb43a7c84ff5b98cdfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 729672885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729672886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e53cc6f7b86ddf4fb6e497610c3a43c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &729672898 stripped
@@ -44730,7 +44773,7 @@ MonoBehaviour:
   pointsEarnedText: {fileID: 1259798213}
   chapterTimeMinutesText: {fileID: 158324903}
   chapterTimeSecondsText: {fileID: 1318742399}
-  mainCharCounts: {fileID: 729672889}
+  mainCharStat: {fileID: 729672887}
 --- !u!114 &902619867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45289,6 +45332,11 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 729672898}
+    - target: {fileID: 8253770299511095360, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 729672887}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dfa29d5a6d7e61409c0870d6565c73e, type: 3}
 --- !u!4 &956383028 stripped
@@ -45862,6 +45910,11 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 729672898}
+    - target: {fileID: 8253770299511095360, guid: 7dfa29d5a6d7e61409c0870d6565c73e,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 729672887}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dfa29d5a6d7e61409c0870d6565c73e, type: 3}
 --- !u!4 &998607885 stripped
@@ -72807,6 +72860,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2016304650}
     m_Modifications:
+    - target: {fileID: 17153171306483022, guid: 455b17400ef6ba5468377f43b998a07f,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 729672887}
     - target: {fileID: 3042455145717986661, guid: 455b17400ef6ba5468377f43b998a07f,
         type: 3}
       propertyPath: m_Radius
@@ -74256,7 +74314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b40cac9b51abd43b63b6045600423b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCharacter: {fileID: 729672886}
+  playerAttack: {fileID: 729672893}
   weaponNames:
   - Pistol
 --- !u!4 &1528089918
@@ -75435,6 +75493,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2016304650}
     m_Modifications:
+    - target: {fileID: 5746318998812634676, guid: 1fd4b452b24e91e4d9bb097aeba0e9ea,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 729672887}
     - target: {fileID: 5795288548318055264, guid: 1fd4b452b24e91e4d9bb097aeba0e9ea,
         type: 3}
       propertyPath: m_Name
@@ -76342,6 +76405,11 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7883724900395268183, guid: 2a7e61aae1950b64489b3df6aa0d0033,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 729672887}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a7e61aae1950b64489b3df6aa0d0033, type: 3}
 --- !u!4 &1695923520 stripped
@@ -76760,6 +76828,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1046899509}
     m_Modifications:
+    - target: {fileID: 17153171306483022, guid: 455b17400ef6ba5468377f43b998a07f,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 729672887}
     - target: {fileID: 3042455145717986661, guid: 455b17400ef6ba5468377f43b998a07f,
         type: 3}
       propertyPath: m_Radius
@@ -78837,6 +78910,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1046899509}
     m_Modifications:
+    - target: {fileID: 5746318998812634676, guid: 1fd4b452b24e91e4d9bb097aeba0e9ea,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 729672887}
     - target: {fileID: 5795288548318055264, guid: 1fd4b452b24e91e4d9bb097aeba0e9ea,
         type: 3}
       propertyPath: m_Name
@@ -79883,6 +79961,11 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7883724900395268183, guid: 2a7e61aae1950b64489b3df6aa0d0033,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 729672887}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a7e61aae1950b64489b3df6aa0d0033, type: 3}
 --- !u!4 &1982511533 stripped
@@ -80299,6 +80382,11 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7883724900395268183, guid: 2a7e61aae1950b64489b3df6aa0d0033,
+        type: 3}
+      propertyPath: playerStat
+      value: 
+      objectReference: {fileID: 729672887}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a7e61aae1950b64489b3df6aa0d0033, type: 3}
 --- !u!4 &2000780004 stripped

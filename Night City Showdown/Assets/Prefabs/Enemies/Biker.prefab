@@ -47,7 +47,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.4, y: 0.2}
+  m_Size: {x: 0.3, y: 0.2}
   m_Direction: 1
 --- !u!114 &1726248928247020615
 MonoBehaviour:
@@ -472,9 +472,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minWaitBorder: 1
   maxWaitBorder: 3
-  speed: 0.8
+  speed: 1
   enemyStopDistance: 0.05
-  playerTransform: {fileID: 0}
 --- !u!114 &6558452895479374604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,7 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundRayDistance: 0.1
   sidesRayDistance: 0.2
-  voidRayDistance: 0.4
+  voidRayDistance: 0.7
   backwardVoidRayDirection: {x: -1.1, y: -1}
   forwardVoidRayDirection: {x: 1.1, y: -1}
   groundMask:
@@ -546,6 +545,7 @@ MonoBehaviour:
   spawnedOnDeathObjectPrefab: {fileID: 0}
   spawnPointDifference: 0.2
   IsSpawnObjectOnDeath: 0
+  IsDestroying: 1
 --- !u!114 &7978865410353579732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,6 +559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPointCost: 15
+  playerStat: {fileID: 0}
 --- !u!114 &4246478752022486039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,7 +598,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5495704690223935751}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.008, y: 0.015, z: 0}
+  m_LocalPosition: {x: 0.008, y: 0.0081, z: 0}
   m_LocalScale: {x: 0.35, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 1726248929862516379}
@@ -616,6 +617,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: 0.0000000017613685, y: 0.086190015}
+  m_Size: {x: 0.5000001, y: 0.8276204}
   m_Direction: 1

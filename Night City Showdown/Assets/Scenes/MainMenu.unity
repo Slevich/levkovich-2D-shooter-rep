@@ -827,7 +827,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 276823043}
-        m_MethodName: LoadScene
+        m_MethodName: LoadSceneOnClick
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -970,7 +970,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 276823043}
-        m_MethodName: LoadScene
+        m_MethodName: LoadSceneOnClick
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1340,15 +1340,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9220d67dbedd144cafdbf0bcd13877c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuButtonsPanel: {fileID: 790649507}
-  buttonsSoundsAudioSource: {fileID: 1992117537}
-  mainMenuMusicSource: {fileID: 950087190}
+  menuButtonsPanel: {fileID: 790649507}
   musicOffButton: {fileID: 1302537383}
   musicOnButton: {fileID: 242288730}
   soundsOffButton: {fileID: 282701043}
   soundsOnButton: {fileID: 1088839913}
   musicSlider: {fileID: 656971900}
   soundsSlider: {fileID: 838574037}
+  mainMenuButtonsPanel: {fileID: 790649507}
+  buttonsSoundsAudioSource: {fileID: 1992117537}
+  mainMenuMusicSource: {fileID: 950087190}
 --- !u!4 &276823044
 Transform:
   m_ObjectHideFlags: 0
@@ -1361,7 +1362,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &276823045
 MonoBehaviour:
@@ -2739,7 +2740,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &971909973
 GameObject:
@@ -3056,7 +3057,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1198629451
 GameObject:
@@ -3087,7 +3088,7 @@ Transform:
   m_Children:
   - {fileID: 1741215623}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1231846242
 GameObject:
@@ -3346,7 +3347,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 276823043}
-        m_MethodName: LoadScene
+        m_MethodName: LoadSceneOnClick
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3648,7 +3649,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 276823043}
-        m_MethodName: LoadScene
+        m_MethodName: LoadSceneOnClick
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4972,7 +4973,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 276823043}
-        m_MethodName: LoadScene
+        m_MethodName: LoadSceneOnClick
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5235,7 +5236,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2027038952
 GameObject:

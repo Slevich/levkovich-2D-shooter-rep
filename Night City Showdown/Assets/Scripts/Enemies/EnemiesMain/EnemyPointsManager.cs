@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class EnemyPointsManager : MonoBehaviour
 {
+    #region Поля
+    [Header("Cost in points of killing enemy.")]
     [SerializeField] private int enemyPointCost;
+    [Header("Player component with level statistic.")]
+    [SerializeField] private MainCharStat playerStat;
+    #endregion
 
-    private EnemyMovement enemyMovement;
-    private GameObject playerObject;
-    private MainCharUICounts playerCounts;
-
-    private void Awake()
-    {
-        enemyMovement = GetComponent<EnemyMovement>();
-        playerObject = enemyMovement.PlayerTransform.gameObject;
-        playerCounts = playerObject.GetComponent<MainCharUICounts>();
-    }
-
+    #region Методы
+    /// <summary>
+    /// Метод вызывает у компонента игрока метод
+    /// по изменению счета игрока.
+    /// </summary>
     public void ChangePlayerScore()
     {
-        playerCounts.UpdateScoreOnEnemyDeath(enemyPointCost);
+        playerStat.UpdateScoreOnEnemyDeath(enemyPointCost);
     }
+    #endregion
 }

@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class GroundedRangeSingleShotEnemyAnimations : EnemyAnimation
 {
+    #region Поля
+    //Компоненты врага.
     private Animator enemyAnim;
     private EnemySingleShotAttack enemyAttack;
-    private EnemyMovement enemyMovement;
+    private Rigidbody2D enemyRB;
+    #endregion
 
+    #region Методы
+    //Получаем компоненты.
     private void Start()
     {
         enemyAnim = GetComponent<Animator>();
         enemyAttack = GetComponent<EnemySingleShotAttack>();
-        enemyMovement = GetComponent<EnemyMovement>();
+        enemyRB = GetComponent<Rigidbody2D>();
     }
 
+    /*В апдейте вызываем метод изменения состояний аниматора.
+     *Если игрок в радиусе атаки, обновляем направление атаки врага.
+     */ 
     private void Update()
     {
         EnemyAnimStates();
@@ -25,13 +33,14 @@ public class GroundedRangeSingleShotEnemyAnimations : EnemyAnimation
         }
     }
 
+    //Метод переключает поведение аниматора в соответствии с текущим стейтом игрока.
     private void EnemyAnimStates()
     {
         switch (enemyStates)
         {
             case EnemyStates.Movement:
                 enemyAnim.SetBool("IsAttack", false);
-                enemyAnim.SetFloat("Speed", enemyMovement.MovementMagnitude);
+                enemyAnim.SetFloat("Speed", enemyRB.velocity.magnitude);
                 break;
 
             case EnemyStates.Attack:
@@ -44,8 +53,10 @@ public class GroundedRangeSingleShotEnemyAnimations : EnemyAnimation
         }
     }
 
+    //Метод передает направление атаки врага в аниматор.
     private void UpdateAnimatorAttackDirection()
     {
         enemyAnim.SetFloat("AttackDirection", enemyAttack.AttackDirection);
     }
+    #endregion
 }

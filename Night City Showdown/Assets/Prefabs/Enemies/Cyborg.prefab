@@ -183,7 +183,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1617939287
   m_SortingLayer: 5
-  m_SortingOrder: 6
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: b216b83e2c5ea484db4025793db185be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -660,7 +660,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1617939287
   m_SortingLayer: 5
-  m_SortingOrder: 6
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: b216b83e2c5ea484db4025793db185be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -830,7 +830,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 3
 --- !u!114 &8472413434616786581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,7 +943,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3042455145968035712}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.95, y: 0.31, z: 0}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_Children:
@@ -1079,7 +1079,6 @@ MonoBehaviour:
   maxWaitBorder: 4
   speed: 0.7
   enemyStopDistance: 0.05
-  playerTransform: {fileID: 0}
 --- !u!114 &941758503158518048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1105,9 +1104,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackInterval: 1
-  attackFireRate: 0.3
-  bulletsPerAttack: 6
-  fireSpeed: 5
+  attackFireRate: 0.4
+  bulletsPerAttack: 5
+  fireSpeed: 4
   lookOffset: 0.2
   weaponHands: {fileID: 3042455144581176862}
   weaponForwardHands: {fileID: 3042455145719870370}
@@ -1138,6 +1137,7 @@ MonoBehaviour:
     type: 3}
   spawnPointDifference: 0.2
   IsSpawnObjectOnDeath: 1
+  IsDestroying: 1
 --- !u!114 &5841667449712994295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundRayDistance: 0.1
   sidesRayDistance: 0.2
-  voidRayDistance: 0.3
+  voidRayDistance: 0.7
   backwardVoidRayDirection: {x: -1.1, y: -1}
   forwardVoidRayDirection: {x: 1.1, y: -1}
   groundMask:
@@ -1176,7 +1176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff35eb5705f181e4f970a46ae98d11d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPointCost: 50
+  enemyPointCost: 25
+  playerStat: {fileID: 0}
 --- !u!114 &8482891431083257700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1260,7 +1261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3042455146205391740}
   m_Layer: 0
-  m_Name: ForwardMuzzleflash
+  m_Name: ForwardMuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1305,7 +1306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8489500634600959782}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0008, y: 0.023, z: 0}
+  m_LocalPosition: {x: 0.0008, y: 0.0149, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3042455145968035773}
@@ -1324,6 +1325,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.14199458, y: 0.0699253}
+  m_Offset: {x: 7.26722e-10, y: 0.0060961866}
+  m_Size: {x: 0.14199461, y: 0.05773305}
   m_Direction: 1

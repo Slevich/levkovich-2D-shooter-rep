@@ -4,32 +4,33 @@ using UnityEngine;
 
 public class BossCartCollider : MonoBehaviour
 {
-    #region Переменные
+    #region Поля
     //Переменная, содержащая референс на компонент врага.
-    private BossCart bossCartComp;
+    private RamAttack bossAttack;
     #endregion
 
     #region Методы
-    /// <summary>
-    /// На старте получаем компонент.
-    /// </summary>
+    // На старте получаем компонент.
     private void Start()
     {
-        bossCartComp = GetComponentInParent<BossCart>();
+        bossAttack = GetComponentInParent<RamAttack>();
     }
 
-    /// <summary>
-    /// При столкновении врага с игроком,
-    /// враг останавливается, вызывается метод
-    /// нанесения урона.
-    /// </summary>
-    /// <param name="collision"></param>
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*При вхождении коллизии с тегом игрока наносит урон.
+     *При вхождении коллизии с тегом игрока или границей преключаем
+     *состояние о том, что вхождение в триггер произошло.
+     */ 
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.CompareTag("Player") && bossCartComp.isMoving)
+        if (collision.CompareTag("Player"))
         {
-            bossCartComp.Damage(collision.rigidbody);
-            bossCartComp.isMoving = false;
+            if (bossAttack.IsMoving) bossAttack.DamagePlayer(collision.gameObject);
+            bossAttack.BorderCollided = true;
+        }
+        else if (collision.CompareTag("Border"))
+        {
+            bossAttack.BorderCollided = true;
         }
     }
     #endregion

@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b0bc0c52dfd6b4098397e9ba8f5f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponHandsType: Rifle
+  weaponType: Rifle
 --- !u!1 &8307805635953567899
 GameObject:
   m_ObjectHideFlags: 0

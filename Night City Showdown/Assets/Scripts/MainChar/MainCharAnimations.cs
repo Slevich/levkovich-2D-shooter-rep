@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class MainCharAnimations : MonoBehaviour
 {
-    #region Переменные
-    //Различные необходимые классы.
+    #region Поля
+    //Различные поля с референсами.
     private Animator playerAnim;
     private SpriteRenderer playerSR;
     private MainCharMovement playerMovement;
-    private MainCharWeapons playerWeapons;
+    private MainCharRangeAttack playerWeapons;
+    private MainCharMeleeAttack playerMeleeAttack;
     private Project.Inputs.MainCharInput playerInput;
     private Health playerHealth;
     #endregion
@@ -23,7 +24,8 @@ public class MainCharAnimations : MonoBehaviour
         playerAnim = GetComponent<Animator>();
         playerSR = GetComponent<SpriteRenderer>();
         playerMovement = GetComponent<MainCharMovement>();
-        playerWeapons = GetComponent<MainCharWeapons>();
+        playerWeapons = GetComponent<MainCharRangeAttack>();
+        playerMeleeAttack = GetComponent<MainCharMeleeAttack>();
         playerInput = GetComponent<Project.Inputs.MainCharInput>();
         playerHealth = GetComponent<Health>();
     }
@@ -70,14 +72,14 @@ public class MainCharAnimations : MonoBehaviour
      */
     private void UpdateJumpAnimation()
     {
-        if (playerMovement.isJumping)
+        if (playerMovement.IsJumping)
         {
             playerAnim.SetBool("IsJumping", true);
-            playerAnim.SetFloat("JumpPosition", playerMovement.jumpPosition);
+            playerAnim.SetFloat("JumpPosition", playerMovement.JumpPosition);
         }
         else
         {
-            playerAnim.SetFloat("JumpPosition", playerMovement.jumpPosition);
+            playerAnim.SetFloat("JumpPosition", playerMovement.JumpPosition);
             playerAnim.SetBool("IsJumping", false);
         }
     }
@@ -88,14 +90,14 @@ public class MainCharAnimations : MonoBehaviour
      */
     private void UpdateDoubleJumpAnimation()
     {
-        if (playerMovement.isDoubleJumping)
+        if (playerMovement.IsDoubleJumping)
         {
             playerAnim.SetBool("IsDoubleJumping", true);
-            playerAnim.SetFloat("DoubleJumpPosition", playerMovement.doubleJumpPosition);
+            playerAnim.SetFloat("DoubleJumpPosition", playerMovement.DoubleJumpPosition);
         }
         else
         {
-            playerAnim.SetFloat("DoubleJumpPosition", playerMovement.doubleJumpPosition);
+            playerAnim.SetFloat("DoubleJumpPosition", playerMovement.DoubleJumpPosition);
             playerAnim.SetBool("IsDoubleJumping", false);
         }
     }
@@ -107,14 +109,14 @@ public class MainCharAnimations : MonoBehaviour
      */
     private void UpdateWeaponAnimations()
     {
-        if (playerWeapons.isWeaponEquipped)
+        if (playerWeapons.IsWeaponEquipped)
         {
-            if (playerWeapons.activeWeaponHandsType == "Pistol")
+            if (playerWeapons.ActiveWeaponType == "Pistol")
             {
                 playerAnim.SetBool("IsPistolEquipped", true);
                 playerAnim.SetBool("IsRifleEquipped", false);
             }
-            else if (playerWeapons.activeWeaponHandsType == "Rifle")
+            else if (playerWeapons.ActiveWeaponType == "Rifle")
             {
                 playerAnim.SetBool("IsRifleEquipped", true);
                 playerAnim.SetBool("IsPistolEquipped", false);
@@ -122,15 +124,15 @@ public class MainCharAnimations : MonoBehaviour
         }
         else
         {
-            if (playerWeapons.activeWeaponHandsType == "Pistol")
+            if (playerWeapons.ActiveWeaponType == "Pistol")
             {
                 playerAnim.SetBool("IsPistolEquipped", false);
             }
-            else if (playerWeapons.activeWeaponHandsType == "Rifle")
+            else if (playerWeapons.ActiveWeaponType == "Rifle")
             {
                 playerAnim.SetBool("IsRifleEquipped", false);
             }
-            else if (playerWeapons.activeWeaponHandsType == "Fists")
+            else if (playerWeapons.ActiveWeaponType == "Fists")
             {
                 playerAnim.SetBool("IsPistolEquipped", false);
                 playerAnim.SetBool("IsRifleEquipped", false);
@@ -142,7 +144,7 @@ public class MainCharAnimations : MonoBehaviour
     // Если персонаж бьет кулаком, изменяем в аниматоре состояние.
     private void UpdateHitAnimation()
     {
-        if (playerWeapons.isHitting)
+        if (playerMeleeAttack.IsHitting)
         {
             playerAnim.SetBool("IsHitting", true);
         }
@@ -155,7 +157,7 @@ public class MainCharAnimations : MonoBehaviour
     // Если игрок бьет ногой, изменяем в аниматоре состояние.
     private void UpdatePunchAnimation()
     {
-        if (playerWeapons.isPunching)
+        if (playerMeleeAttack.IsPunching)
         {
             playerAnim.SetBool("IsPunching", true);
         }

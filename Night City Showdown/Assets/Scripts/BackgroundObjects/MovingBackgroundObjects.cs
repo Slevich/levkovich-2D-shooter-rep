@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovingBackgroundObjects : MonoBehaviour
 {
-    #region Переменные
+    #region Поля
     [Header("Movement speed of background objects")]
     [SerializeField] private float speed;
     [Header("Movement direction of background objects")]
@@ -22,11 +22,9 @@ public class MovingBackgroundObjects : MonoBehaviour
     #endregion
 
     #region Методы
-    /// <summary>
-    /// Метод Start. 
-    /// На старте получаем Rigidbody2d, передаем главную камеру в переменную.
-    ///Если направление стоит "backward" объекта на старте разворачивается.
-    /// </summary>
+    /* На старте получаем Rigidbody2d, передаем главную камеру в переменную.
+     * Если направление стоит "backward" объекта на старте разворачивается.
+     */
     void Start()
     {
         truckRB = GetComponent<Rigidbody2D>();
@@ -35,33 +33,29 @@ public class MovingBackgroundObjects : MonoBehaviour
         if (direction == "Backward") transform.Rotate(0, 180, 0);
     }
 
-    /// <summary>
-    /// Метод Update.
-    /// В апдейте считываем максимальную и минимальную координаты по X.
-    /// Далее движение объекта.
-    /// </summary>
+    /* В апдейте считываем максимальную и минимальную координаты по X.
+     * Далее движение объекта.
+     */
     void Update()
     {
         CalculateXCoodinateBorders();
         MoveTruck();
     }
 
-    /// <summary>
-    /// Рассчитываем минимальную и максимальную точку по X,
-    /// Путем вычета или сложения размера камеры, расстояния движения объекта
-    /// вне камеры и местоположения камеры.
-    /// </summary>
+    /* Рассчитываем минимальную и максимальную точку по X,
+     * Путем вычета или сложения размера камеры, расстояния движения объекта
+     * вне камеры и местоположения камеры.
+     */
     private void CalculateXCoodinateBorders()
     {
         minXCoordinate = mainCamera.transform.position.x - mainCamera.orthographicSize - rotationOffset;
         maxXCoordinate = mainCamera.transform.position.x + mainCamera.orthographicSize + rotationOffset;
     }
 
-    /// <summary>
-    /// Двигаем объект в записимости от направления движения.
-    /// Доходя до крайней точки, объект разворачивается и
-    /// движется в обратную сторону.
-    /// </summary>
+    /* Двигаем объект в записимости от направления движения.
+     * Доходя до крайней точки, объект разворачивается и
+     * движется в обратную сторону.
+     */
     private void MoveTruck()
     {
         if (direction == "Forward")

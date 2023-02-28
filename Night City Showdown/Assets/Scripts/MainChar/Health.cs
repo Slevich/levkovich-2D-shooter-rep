@@ -11,14 +11,14 @@ public class Health : MonoBehaviour
 
     #region Свойства
     public bool IsAlive { get { return currentHealth > 0; } }
-
+    public float MaxHealth { get { return maxHealth; } }
     #endregion
 
     #region Методы
-    /* На старте, значение, что первонаж жив - истинно.
+    /* В Awake значение, что первонаж жив - истинно.
      * Текущее здоровье становится равным максимальному.
      */
-    private void Start()
+    private void Awake()
     {
         currentHealth = maxHealth;
     }
